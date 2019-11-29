@@ -11,16 +11,30 @@
             acceuilVue = new AccueilVue(document);
             acceuilVue.afficher();
         }
-        else if(hash.match(/^#page-page1/)) {
-            page1Vue = new Page1Vue();
-            page1Vue.afficher();
-            console.log("dzd");
+        else if(hash.match(/^#page-confirmation-achat/)) {
+            confirmationAchatVue = new ConfirmationAchatVue();
+            confirmationAchatVue.afficher();
+            
+        }  
+        else if(hash.match(/^#page-information-client/)) {
+            informationClientVue = new InformationClientVue();
+            informationClientVue.afficher();
+            
+        }   
+        else if(hash.match(/^#page-liste-article/)) {
+            venteVue = new ListeArticleVue();
+            venteVue.afficher();
         }
-        else if(hash.match(/^#page-page2/)) {
-            page2Vue = new Page2Vue();
-            page2Vue.afficher();
+        else if(hash.match(/^#page-paiement/)) {
+            paiementVue = new PaiementVue();
+            paiementVue.afficher();
 
-        }        
+        } 
+        else if(hash.match(/^#page-personnalisation-produit/)) {
+            personnalisationProduitVue = new PersonnalisationProduitVue();
+            personnalisationProduitVue.afficher();
+
+        }
     }
 
     initialiser();
