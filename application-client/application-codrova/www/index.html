@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-	<title>MobApp</title>
+	<title>SnowCool</title>
+
+	<meta http-equiv="Content-Type" content="charset=UTF-8">
 
 	<!-- style -->
 	<link rel="stylesheet" href="lib/css/bootstrap-4.4.0.min.css">
+	<link rel="stylesheet" href="asset/css/snowcool.css">
 	
 	<!-- font -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
@@ -18,7 +21,7 @@
 
 Erreur dans l'app !
 
-<script id="fragment-navigation" type="text/html">
+<script id="fragment-barre-navigation-haut" type="text/html">
 	<nav class="navbar sticky-top navbar navbar-expand-lg navbar-dark bg-dark">
 		<a class="navbar-brand" href="#">
 			<img src="res/img/snowcool_logo.png" width="30" height="30" class="d-inline-block align-top" alt="Logo SnowCool">
@@ -55,6 +58,17 @@ Erreur dans l'app !
 	</nav>
 </script>
 
+<script id="fragment-barre-navigation-bas" type="text/html">
+	<footer class="container-fluid fixed-bottom">
+		<div class="row">
+			<div class="col-12 text-center">
+				<a href="#" class="btn btn-danger mb-3"><i class="fas fa-plus-square"></i></a>
+			</div>
+		</div>
+		<a id="toTheTop"><span><i class="fa fa-chevron-circle-up"></i></span></a>
+	</footer>
+</script>
+
 <script id="page-accueil" type="text/html">
 	<div class="container">
 		<div class="row my-2"></div>
@@ -89,7 +103,9 @@ Erreur dans l'app !
 
 
 <script src="lib/js/jquery-3.4.1.min.js"></script>
+<script src="lib/js/popper-1.16.0.js"></script>
 <script src="lib/js/bootstrap-4.4.0.min.js"></script>
+<script src="asset/js/snowcool.js"></script>
 
 <script src="js/vue/AccueilVue.js"></script>
 <script src="js/vue/Page1Vue.js"></script>
