@@ -81,8 +81,9 @@ Erreur dans l'app !
 					</div>
 				</li>
 			</ul>
-			<a href="" class="btn btn-sm btn-outline-light m-2"><i class="fas fa-shopping-cart"></i></a>
-			<a href="" class="btn btn-sm btn-outline-danger m-2"><i class="fas fa-sign-out-alt"></i></a>
+			<button type="button" class="btn btn-sm btn-outline-light m-2" data-toggle="modal" data-target="#modal-panier"><i class="fas fa-shopping-cart"></i></button>
+			<a href="#" class="btn btn-sm btn-outline-danger m-2"><i class="fas fa-sign-out-alt"></i></a>
+
 		</div>
 	</nav>
 </script>
@@ -98,12 +99,80 @@ Erreur dans l'app !
 	</footer>
 </script>
 
-<script id="page-accueil" type="text/html">
-	<div class="container">
-		<div class="row mt-2">
-			<h1>TODO: page-accueil</h1>
+<script id="fragment-footer" type="text/html">
+	<footer class="container-fluid">
+		<div class="row">
+
+		</div>
+	</footer>
+</script>
+
+<script id="fragment-modal-panier" type="text/html">
+	<div class="modal fade" id="modal-panier" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-xl" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Panier</h5>
+				</div>
+				<div class="modal-body table-responsive">
+					<table class="table">
+						<tbody>
+							<tr>
+								<td scope="row"><img src="https://via.placeholder.com/30" width="30" height="30" class="d-inline-block align-top"></td>
+								<td scope="row">Skis</td>
+								<td>24,55 CAD</td>
+								<td>
+									<a href="#" class="btn btn-outline-danger btn-small"><i class="fas fa-trash"></i></a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-dark btn-secondary" data-dismiss="modal">Continuer le magazinage</button>
+					<button type="button" class="btn btn-danger btn-primary">Commander</button>
+				</div>
+			</div>
 		</div>
 	</div>
+</script>
+
+<script id="page-accueil" type="text/html">
+	<div class="parallax-page-accueil-partie1"></div>
+	<div class="container-fluid">
+		<div class="row my-5">
+			<div class="col-12 text-center">
+				<h1 class="page-accueil-h1">SnowCool vous souhaite la bienvenue !</h1>
+				<div class="row">
+					<div class="col-12 my-1 text-center">
+						<a href="#" class="btn btn-outline-dark page-accueil-bouton">Skis</a>
+						<a href="#" class="btn btn-outline-dark page-accueil-bouton">Bâtons de ski</a>
+					</div>
+					<div class="col-12 my-1 text-center">
+						<a href="#" class="btn btn-dark page-accueil-bouton">Chaussures de ski</a>
+						<a href="#" class="btn btn-dark page-accueil-bouton">Snowboards</a>
+					</div>
+					<div class="col-12 my-1 text-center">
+						<a href="#" class="btn btn-outline-dark page-accueil-bouton">Chaussures de snowboard</a>
+						<a href="#" class="btn btn-outline-dark page-accueil-bouton">Vestes</a>
+					</div>
+					<div class="col-12 my-1 text-center">
+						<a href="#" class="btn btn-dark page-accueil-bouton">Combinaisons</a>
+						<a href="#" class="btn btn-dark page-accueil-bouton">Pantalons</a>
+					</div>
+					<div class="col-12 my-1 text-center">
+						<a href="#" class="btn btn-outline-dark page-accueil-bouton">Combinaisons</a>
+						<a href="#" class="btn btn-outline-dark page-accueil-bouton">Gants</a>
+					</div>
+					<div class="col-12 my-1 text-center">
+						<a href="#" class="btn btn-dark page-accueil-bouton">Casques</a>
+						<a href="#" class="btn btn-dark page-accueil-bouton">Masques</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="parallax-page-accueil-partie2"></div>
 </script>
 
 <script id="page-liste-article" type="text/html">
@@ -182,4 +251,4 @@ Erreur dans l'app !
 <script src="js/vue/PaiementVue.js"></script>
 <script src="js/vue/PersonnalisationProduitVue.js"></script>
 
-<script src="js/controleur/PrincipalControleur.js"></script>
+<script src="js/Main.js"></script>

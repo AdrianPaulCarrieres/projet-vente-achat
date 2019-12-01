@@ -11,11 +11,21 @@
             acceuilVue = new AccueilVue(document);
             acceuilVue.afficher();
         }
-        else if(hash.match(/^#page-confirmation-achat/)) {
+
+        else if(hash.match(/^#confirmation-achat/)) {
             confirmationAchatVue = new ConfirmationAchatVue();
             confirmationAchatVue.afficher();
             
-        }  
+        }
+        else if(hash.match(/^#confirmation-achat\/([0-9]+)/)){
+            var navigation = hash.match(/^#modifier-devoir\/([0-9]+)/);
+            var idDevoir = navigation[1];
+
+            var listeDevoirDonnee = devoirDAO.lister();
+            var modifierDevoirVue = new ModifierDevoirVue(listeDevoirDonnee[idDevoir], actionModifierDevoir);
+            modifierDevoirVue.afficher();
+        }
+
         else if(hash.match(/^#page-information-client/)) {
             informationClientVue = new InformationClientVue();
             informationClientVue.afficher();
