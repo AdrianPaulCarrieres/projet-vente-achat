@@ -8,8 +8,7 @@
     var naviguer = function() {
         var hash = window.location.hash;
         if(!hash) {
-            acceuilVue = new AccueilVue(document);
-            acceuilVue.afficher();
+            new AccueilControleur();
         }
 
         else if(hash.match(/^#confirmation-achat/)) {
