@@ -9,7 +9,7 @@ var AccueilVue = (function() {
         this.afficher = function() {
 
             elementBody = document.getElementsByTagName("body")[0];
-            elementBody.innerHTML = framgmentBarreNavigationHaut + pageAccueil + fragmentFooter + fragmentModalPanier; 
+            elementBody.innerHTML = framgmentBarreNavigationHaut + pageAccueil + fragmentFooter + fragmentModalPanier;
         }
     }
 })();

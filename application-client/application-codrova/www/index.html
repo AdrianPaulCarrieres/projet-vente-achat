@@ -109,14 +109,15 @@ Erreur dans l'app !
 
 <script id="fragment-modal-panier" type="text/html">
 	<div class="modal fade" id="modal-panier" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog modal-xl" role="document">
+		<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Panier</h5>
+					<h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-shopping-cart"></i> Panier</h5>
 				</div>
 				<div class="modal-body table-responsive">
 					<table class="table">
-						<tbody>
+						<!-- TODO: remplir dynamiquement cette liste -->
+						<tbody id="tableau-liste-article-panier">
 							<tr>
 								<td scope="row"><img src="https://via.placeholder.com/30" width="30" height="30" class="d-inline-block align-top"></td>
 								<td scope="row">Skis</td>
@@ -127,11 +128,13 @@ Erreur dans l'app !
 							</tr>
 						</tbody>
 					</table>
-					<button type="button" class="btn btn-outline-danger">Vider le panier</button>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-dark btn-secondary" data-dismiss="modal">Continuer le magazinage</button>
-					<button type="button" class="btn btn-danger btn-primary">Commander</button>
+					<!-- TODO: capturer l'évènement pour vider le panier -->
+					<button id="bouton-action-vider-panier" type="button" class="mr-auto btn btn-outline-danger">Vider le panier</button>
+					<button type="button" class="btn btn-dark btn-secondary" data-dismiss="modal">Continuer le magasinage</button>
+					<!-- TODO: capturer l'évènement pour commander -->
+					<button id="bouton-action-commander" type="button" class="btn btn-danger btn-primary">Commander</button> 
 				</div>
 			</div>
 		</div>
@@ -145,29 +148,29 @@ Erreur dans l'app !
 			<div class="col-12 text-center">
 				<h1 class="page-accueil-h1">SnowCool vous souhaite la bienvenue !</h1>
 				<div class="row">
-					<div class="col-12 my-1 text-center">
-						<a href="#" class="btn btn-outline-dark page-accueil-bouton">Skis</a>
-						<a href="#" class="btn btn-outline-dark page-accueil-bouton">Bâtons de ski</a>
+					<div class="col-12 my-1 text-center d-flex justify-content-center">
+						<a href="#" class="btn btn-outline-dark w-50 mx-1 text-wrap">Skis</a>
+						<a href="#" class="btn btn-outline-dark w-50 mx-1 text-wrap">Bâtons de ski</a>
 					</div>
-					<div class="col-12 my-1 text-center">
-						<a href="#" class="btn btn-dark page-accueil-bouton">Chaussures de ski</a>
-						<a href="#" class="btn btn-dark page-accueil-bouton">Snowboards</a>
+					<div class="col-12 my-1 text-center d-flex justify-content-center">
+						<a href="#" class="btn btn-dark w-50 mx-1 text-wrap">Chaussures de ski</a>
+						<a href="#" class="btn btn-dark w-50 mx-1 text-wrap">Snowboards</a>
 					</div>
-					<div class="col-12 my-1 text-center">
-						<a href="#" class="btn btn-outline-dark page-accueil-bouton">Chaussures de snowboard</a>
-						<a href="#" class="btn btn-outline-dark page-accueil-bouton">Vestes</a>
+					<div class="col-12 my-1 text-center d-flex justify-content-center">
+						<a href="#" class="btn btn-outline-dark w-50 mx-1 text-wrap">Chaussures de snowboard</a>
+						<a href="#" class="btn btn-outline-dark w-50 mx-1 text-wrap">Vestes</a>
 					</div>
-					<div class="col-12 my-1 text-center">
-						<a href="#" class="btn btn-dark page-accueil-bouton">Combinaisons</a>
-						<a href="#" class="btn btn-dark page-accueil-bouton">Pantalons</a>
+					<div class="col-12 my-1 text-center d-flex justify-content-center">
+						<a href="#" class="btn btn-dark w-50 mx-1 text-wrap">Combinaisons</a>
+						<a href="#" class="btn btn-dark w-50 mx-1 text-wrap">Pantalons</a>
 					</div>
-					<div class="col-12 my-1 text-center">
-						<a href="#" class="btn btn-outline-dark page-accueil-bouton">Combinaisons</a>
-						<a href="#" class="btn btn-outline-dark page-accueil-bouton">Gants</a>
+					<div class="col-12 my-1 text-center d-flex justify-content-center">
+						<a href="#" class="btn btn-outline-dark w-50 mx-1 text-wrap">Combinaisons</a>
+						<a href="#" class="btn btn-outline-dark w-50 mx-1 text-wrap">Gants</a>
 					</div>
-					<div class="col-12 my-1 text-center">
-						<a href="#" class="btn btn-dark page-accueil-bouton">Casques</a>
-						<a href="#" class="btn btn-dark page-accueil-bouton">Masques</a>
+					<div class="col-12 my-1 text-center d-flex justify-content-center">
+						<a href="#" class="btn btn-dark w-50 mx-1 text-wrap">Casques</a>
+						<a href="#" class="btn btn-dark w-50 mx-1 text-wrap">Masques</a>
 					</div>
 				</div>
 			</div>
