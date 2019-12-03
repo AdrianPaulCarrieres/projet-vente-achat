@@ -1,14 +1,9 @@
 const MongoClient = require('mongodb').MongoClient;
 
 // TODO: A mettre a jour
-const credentials = require('../../../credentials/CredentialsMongo');
+const credentials = require('../../../../../../credentials/Credentials');
 
 const credentialsMongo = credentials.Credentials();
-
-// Connection URL
-// const url = 'mongodb://admin:password@localhost:27017?authMechanism=DEFAULT&authSource=admin&ssl=false"';
-// Database Name
-// const dbName = 'snowcool';
 
 exports.url = function () {
     return credentialsMongo.url;
