@@ -12,4 +12,5 @@
 | __Casque__    | id_casque, etiquette, categorie, prix, taille, marque, modele |
 | __Batton__    | id_batton, etiquette, categorie, prix, taille, marque, modele |
 | __BarreToit__ | id_barre_toit, etiquette, categorie, prix, longueur, marque, modele |
+| __Achat__ | id_achat, id_produit, id_personnalisation, date_achat, prix, nom_client, mail_client |
 
