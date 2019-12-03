@@ -1,6 +1,6 @@
 module.exports = {
-    Snowboard: function (idSki, etiquette, categorie, prix, taille, largeur, type, marque, modele) {
-        this.id_ski = idSki;
+    Snowboard: function (idSnowboard, etiquette, categorie, prix, taille, largeur, type, marque, modele) {
+        this.id_snowboard = idSnowboard;
         this.etiquette = etiquette;
         this.categorie = categorie;
         this.prix = prix;

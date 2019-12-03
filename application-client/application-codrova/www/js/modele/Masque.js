@@ -7,8 +7,8 @@ module.exports = {
         this.taille = taille;
         this.marque = marque;
         this.modele = modele;
-        this.antiBuee = antiBuee;
-        this.antiRayures = antiRayures;
-        this.antiUV = antiUV;
+        this.anti_buee = antiBuee;
+        this.anti_rayures = antiRayures;
+        this.anti_uv = antiUV;
     }
 }
