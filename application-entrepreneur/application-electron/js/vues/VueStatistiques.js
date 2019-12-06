@@ -9,12 +9,59 @@ var VueStatistiques = (function () {
             elementBody = document.getElementsByTagName("body")[0];
             elementBody.innerHTML = navbar + pageStatistiques;
             peuplerTableauAnnee();
-            peuplerTab
+            peuplerTableauProduit();
+            peublerTableauCategories();
         }
     };
 
+    function peuplerTableauProduit() {
+        tableauProduits = document.getElementById("corps_tableau_produit");
+        var produit, nombre, total,  moyenne, categorie, meilleurMois
+        var textTableau = "";
+        for (let i = 0; i < 6; i++) {
+            produit = "ski";
+            nombre = 85;
+            total = "$3610";
+            moyenne = "$60$";
+            categorie = "equipement";
+            meilleurMois = "Novembre";
+            textTableau += "<tr>"
+                +"<th>"+produit+"</th>"
+                +"<th>"+nombre+"</th>"
+                +"<th>"+total+"</th>"
+                +"<th>"+moyenne+"</th>"
+                +"<th>"+meilleurMois+"</th>"
+                +"<th>"+categorie+"</th>"
+                +"</tr>"
+        }
+        tableauProduits.innerHTML = textTableau;
+    }
+
+    function peublerTableauCategories() {
+        tableauCategories = document.getElementById("corps_tableau_categorie");
+        var categorie, nombre, total,  moyenne, meilleurProduit, meilleurMois
+        var textTableau = "";
+        for (let i = 0; i < 6; i++) {
+            categorie = "vetements";
+            nombre = 85;
+            total = "$3610";
+            moyenne = "$60$";
+            meilleurProduit = "casque";
+            meilleurMois = "Novembre";
+            textTableau += "<tr>"
+                +"<th>"+categorie+"</th>"
+                +"<th>"+nombre+"</th>"
+                +"<th>"+total+"</th>"
+                +"<th>"+moyenne+"</th>"
+                +"<th>"+meilleurProduit+"</th>"
+                +"<th>"+meilleurMois+"</th>"
+                +"</tr>"
+        }
+        tableauCategories.innerHTML = textTableau;
+    }
+
     function peuplerTableauAnnee(){
-        tableauAnnee = document.getElementById("corps_tableau_anneau");
+        tableauAnnee = document.getElementById("corps_tableau_annee");
         var nombre, total, moyenne, meilleurProduit, meilleureCategorie;
         nombre = 200;
         total = "$508.20";
