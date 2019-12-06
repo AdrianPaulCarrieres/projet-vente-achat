@@ -1,13 +1,26 @@
-On peut obtenir un JSON de la liste de toutes les personnalisations en suivant les étapes suivantes:
+# Installation
 
-1- Copier le répertoire
+Copier le répertoire et installer les modules Node.JS
 
-2-
-
-```
+```bash
+git clone https://github.com/cegepmatane/projet-vente-achat-2019-lachancechristophe
+cd projet-vente-achat-2019-lachancechristophe
 npm init
 npm i express mysql
-nodeje server.js
+nodejs server.js
 ```
 
-3- Accéder à "http://localhost:3000/persos"
+# Usage
+
+## Lister toutes les personnalisations 
+
+```
+curl http://localhost:3000/persos
+```
+
+## Lire une seule personnalisations
+
+```
+curl http://localhost:3000/perso/1
+```
+

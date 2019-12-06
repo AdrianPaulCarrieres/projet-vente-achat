@@ -17,4 +17,12 @@ app.get('/persos', async (req, res) => {
     res.json({ results });
   })
 
+app.get('/perso/:id', async (req, res) => {
+    const { id } = req.params;
+    const conn = await connection(connexion).catch(e => {}) 
+    var requete = 'SELECT * FROM personnalisation WHERE id = ' + id;
+    const results = await query(conn, requete).catch(console.log);
+    res.json({ results });
+  });
+
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
