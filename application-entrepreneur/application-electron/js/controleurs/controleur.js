@@ -12,9 +12,9 @@
         if (!hash){
             var vueStatistiques = new VueStatistiques();
             vueStatistiques.afficher();
-        }else {
-            var vueStatistiques = new VueStatistiques();
-            vueStatistiques.afficher();
+        }else if(hash.match(/^#listeProduits/)){
+            var  vueListeProduits = new VueListeProduits();
+            vueListeProduits.afficher();
         }
     };
 
