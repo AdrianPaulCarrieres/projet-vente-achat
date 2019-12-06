@@ -16,6 +16,10 @@ exports.client = function () {
     return new MongoClient(this.url());
 }
 
+exports.fermer = function(client) {
+    client.close();
+}
+
 exports.insererTableauElement = async function (tableauValeur, collection) {
 
     var client = this.client();
@@ -27,6 +31,7 @@ exports.insererTableauElement = async function (tableauValeur, collection) {
 
     console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Inserer dans la base de données');
 
+    this.fermer(client);
     // client.close();
 
 }
@@ -42,6 +47,7 @@ exports.insererDocument = async function (element, collection) {
 
     console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Inserer dans la base de données');
 
+    this.fermer(client);
     // client.close();
 
 }
@@ -56,6 +62,8 @@ exports.selectionnerUnDocument = async function (clef, valeur, collection) {
     const db = c.db(this.dbName());
     var resultat = await db.collection(collection).findOne(document).toArray();
 
+    this.fermer(client);
+
     return resultat;
 
 }
@@ -68,6 +76,8 @@ exports.selectionnerDocumentsCollection = async function (collection) {
 
     const db = c.db(this.dbName());
     var resultat = await db.collection(collection).find({}).toArray();
+
+    this.fermer(client);
 
     return resultat;
 
@@ -86,6 +96,8 @@ exports.modifierUnDocument = async function (clef, valeur, nouveauDocument, coll
 
     console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Document modifié');
 
+    this.fermer(client);
+
 }
 
 exports.modifierDesDocuments = async function (clef, valeur, nouveauDocument, collection) {
@@ -100,6 +112,8 @@ exports.modifierDesDocuments = async function (clef, valeur, nouveauDocument, co
     await db.collection(collection).updateMany(document, { $set: nouveauDocument });
 
     console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Documents modifiés');
+
+    this.fermer(client);
 
 }
 
@@ -117,6 +131,8 @@ exports.supprimerUnDocument = async function (clef, valeur, collection) {
 
     console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Document supprimé');
 
+    this.fermer(client);
+
 }
 
 exports.supprimerDesDocuments = async function (clef, valeur, collection) {
@@ -131,5 +147,7 @@ exports.supprimerDesDocuments = async function (clef, valeur, collection) {
     await db.collection(collection).deleteMany(document);
 
     console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Documents supprimés');
+
+    this.fermer(client);
 
 }
