@@ -1,8 +1,9 @@
 exports.COLLECTION = 'produit';
 
 module.exports = {
-    Produit: function (idProduit, etiquette, categorie, prix, marque, modele, cheminImage, flagDisponibilite) {
+    Produit: function (idProduit, nomProduit, etiquette, categorie, prix, marque, modele, cheminImage, flagDisponibilite) {
         this.id_produit = idProduit;
+        this.nom_produit = nomProduit;
         this.etiquette = etiquette;
         this.categorie = categorie;
         this.prix = prix;
