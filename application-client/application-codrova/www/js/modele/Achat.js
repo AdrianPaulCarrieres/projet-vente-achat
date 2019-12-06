@@ -1,3 +1,5 @@
+exports.COLLECTION = 'achat';
+
 module.exports = {
     Achat: function (idAchat, idProduit, idPersonnalisation, dateAchat, prix, nomClient, mailClient) {
         this.id_achat = idAchat;
