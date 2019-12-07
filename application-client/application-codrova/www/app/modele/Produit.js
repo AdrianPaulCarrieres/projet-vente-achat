@@ -1,15 +1,13 @@
-exports.COLLECTION = 'produit';
+class Produit {
 
-module.exports = {
-    Produit: function (idProduit, nomProduit, etiquette, categorie, prix, marque, modele, cheminImage, flagDisponibilite) {
-        this.id_produit = idProduit;
-        this.nom_produit = nomProduit;
+    constructor(idProduit, etiquette, categorie, prix, marque, modele, cheminImage, disponible) {
+        this.idProduit = idProduit;
         this.etiquette = etiquette;
         this.categorie = categorie;
         this.prix = prix;
         this.marque = marque;
         this.modele = modele;
-        this.chemin_image = cheminImage;
-        this.flag_disponibilite = flagDisponibilite;
+        this.cheminImage = cheminImage;
+        this.disponible = disponible;
     }
 }
