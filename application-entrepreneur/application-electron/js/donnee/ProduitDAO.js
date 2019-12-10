@@ -102,4 +102,29 @@ class ProduitDAO {
 
     }
 
+    valeurTotal = async function () {
+
+        var client = baseDeDonnees.client();
+
+        const c = await client.connect();
+
+        const db = c.db(baseDeDonnees.dbName());
+
+        var resultat = await db.collection('achat').aggregate([
+            {
+                $group: {
+                    _id: 0,
+                    prix_total: { $sum: "$prix" }
+                }
+            }
+
+        ]).toArray();
+
+        baseDeDonnees.fermer(client);
+
+        var retour = resultat[0].prix_total
+
+        return retour;
+    }
+
 }
