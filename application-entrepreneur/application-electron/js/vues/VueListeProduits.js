@@ -2,10 +2,11 @@ var VueListeProduits = (function () {
     navbar = document.getElementById("navbar").innerHTML;
     pageListeProduits = document.getElementById("page-liste-produits").innerHTML;
 
-    return function () {
+    return function (listeProduits) {
 
-        this.afficher = async function () {
+        this.afficher = function () {
             console.log("affichage");
+            console.log(listeProduits);
             //TODO: var resultatQuery = await produitDAO.nomMethode();
             elementBody = document.getElementsByTagName("body")[0];
             elementBody.innerHTML = navbar + pageListeProduits;
@@ -44,13 +45,16 @@ var VueListeProduits = (function () {
                         '                        </div>\n' +
                         '                    </li>\n'
                 }
-                texteListeCategories += '<li class="list-group-item list-group-item-action list-group-item-success"><div class="row justify-content-center align-items-center"><div class="col-3"><button class="btn btn-success">Ajouter un produit</button></div></div></li>' +
+                texteListeCategories += '<li class="list-group-item list-group-item-action list-group-item-success"><div class="row justify-content-center align-items-center"><div class="col-3"><button class="btn btn-success" onclick="modalAjouter('+i+')" data-toggle="modal" data-target="#modal-ajout">Ajouter un produit</button></div></div></li>' +
                     '                </ul>\n' +
                     '            </div>';
                 texteListeCategories+='</div>'
             }
             liste.innerHTML = texteListeCategories;
         }
+
     };
 
+
 })();
+

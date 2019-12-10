@@ -1,4 +1,4 @@
-const baseDeDonnees = require('./BaseDeDonneesMongoDB');
+
 const achat = require('../modele/Achat');
 
 class AchatDAO {

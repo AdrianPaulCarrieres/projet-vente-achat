@@ -73,11 +73,64 @@ erreur
 
             </div>
         </div>
+
+        <div class="modal fade" id="modal-ajout" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Ajout d'un produit</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="champ-nom" class="col-form-label">Nom:</label>
+                                <input type="text" class="form-control" id="champ-nom">
+                            </div>
+                            <div class="form-group">
+                                <label for="champ-etiquette" class="col-form-label">Etiquette:</label>
+                                <input type="text" class="form-control" id="champ-etiquette">
+                            </div>
+                            <div class="form-group">
+                                <label for="champ-marque" class="col-form-label">Marque:</label>
+                                <input type="text" class="form-control" id="champ-marque">
+                            </div>
+                            <div class="form-group">
+                                <label for="champ-modele" class="col-form-label">Modele:</label>
+                                <input type="text" class="form-control" id="champ-modele">
+                            </div>
+                            <div class="form-group">
+                                <label for="champ-prix" class="col-form-label">Prix:</label>
+                                <input type="text" class="form-control" id="champ-prix">
+                            </div>
+                            <div class="form-group">
+                                <label for="champ-image">Image</label>
+                                <input type="file" class="form-control-file" id="champ-image">
+                            </div>
+                            <input type="text" class="form-control-file" id="champ-id-categorie" hidden>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+</script>
+
+<script>
+    function modalAjouter(idCategorie){
+        $('#champ-id-categorie').val(idCategorie);
+    }
 </script>
 
 </body>
 
 <script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/donnee/ProduitDAO.js"></script>
+<script src="js/donnee/AchatDAO.js"></script>
 <script src="js/vues/VueStatistiques.js"></script>
 <script src="js/vues/VueListeProduits.js"></script>
 <script src="js/controleurs/controleur.js"></script>
