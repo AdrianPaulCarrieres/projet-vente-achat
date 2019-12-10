@@ -2,20 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="74167604-cec8-4113-b8dd-5bc0f2ad9bc7" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/Main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controleur/AccueilControleur.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/controleur/AccueilControleur.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/donnee/AchatDAO.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/donnee/BaseDeDonneesMongoDB.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/donnee/ProduitDAO.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/modele/Achat.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/modele/Achat.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/modele/Categorie.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/modele/Categorie.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/modele/Produit.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/modele/Produit.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/donnee/ProduitPanierDAO.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/vue/AccueilVue.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/vue/AccueilVue.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/ConfirmationAchatVue.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/InformationClientVue.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/ListeArticleVue.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/PaiementVue.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/PersonnalisationProduitVue.js" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -55,6 +47,8 @@
       <option name="presentableId" value="Default" />
       <updated>1575737987836</updated>
       <workItem from="1575737989068" duration="1898000" />
+      <workItem from="1575905227717" duration="3071000" />
+      <workItem from="1575983145915" duration="954000" />
     </task>
     <servers />
   </component>
@@ -66,7 +60,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

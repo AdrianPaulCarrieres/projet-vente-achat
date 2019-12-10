@@ -14,14 +14,13 @@
 	
 	<!-- icon -->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-<body>
 
 </head>
 <body>
 
 Erreur dans l'app !
 
-<script id="fragment-barre-navigation-haut" type="text/html">
+<script id="fragment-barre-navigation-haut" type="text/plain">
 	<nav class="navbar sticky-top navbar navbar-expand-lg navbar-dark bg-dark">
 		<a class="navbar-brand" href="#">
 			<img src="res/img/snowcool_logo.png" width="30" height="30" class="d-inline-block align-top" alt="Logo SnowCool">
@@ -33,62 +32,62 @@ Erreur dans l'app !
 		<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
 			<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 				<li class="nav-item active dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<a class="nav-link dropdown-toggle" href="#" id="dropdown-equipement-ski" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						Équipement de ski
 					</a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="#">Skis</a>
-						<a class="dropdown-item" href="#">Bâtons</a>
-						<a class="dropdown-item" href="#">Chaussures</a>
+					<div class="dropdown-menu" aria-labelledby="dropdown-equipement-ski">
+						<a class="dropdown-item" href="#vente-ski">Skis</a>
+						<a class="dropdown-item" href="#vente-baton">Bâtons</a>
+						<a class="dropdown-item" href="#vente-chaussure-ski">Chaussures</a>
 					</div>
 				</li>
 				<li class="nav-item active dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<a class="nav-link dropdown-toggle" href="#" id="dropdown-equipement-snowboard" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						Équipement de snowboard
 					</a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="#">Snowboards</a>
-						<a class="dropdown-item" href="#">Chaussures</a>
+					<div class="dropdown-menu" aria-labelledby="dropdown-equipement-snowboard">
+						<a class="dropdown-item" href="#vente-snowboard">Snowboards</a>
+						<a class="dropdown-item" href="#vente-chaussure-snowboard">Chaussures</a>
 					</div>
 				</li>
 				<li class="nav-item active dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<a class="nav-link dropdown-toggle" href="#" id="dropdown-vetement" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						Vêtements
 					</a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="#">Vestes</a>
-						<a class="dropdown-item" href="#">Combinaisons</a>
-						<a class="dropdown-item" href="#">Pantalons</a>
-						<a class="dropdown-item" href="#">Gants</a>
+					<div class="dropdown-menu" aria-labelledby="dropdown-vetement">
+						<a class="dropdown-item" href="#vente-veste">Vestes</a>
+						<a class="dropdown-item" href="#vente-combinaison">Combinaisons</a>
+						<a class="dropdown-item" href="#vente-pantalon">Pantalons</a>
+						<a class="dropdown-item" href="#vente-gant">Gants</a>
 					</div>
 				</li>
 				<li class="nav-item active dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<a class="nav-link dropdown-toggle" href="#" id="dropdown-protection" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						Protections
 					</a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="#">Casques</a>
-						<a class="dropdown-item" href="#">Masques</a>
+					<div class="dropdown-menu" aria-labelledby="dropdown-protection">
+						<a class="dropdown-item" href="#vente-casque">Casques</a>
+						<a class="dropdown-item" href="#vente-masque">Masques</a>
 					</div>
 				</li>
 				<li class="nav-item active dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<a class="nav-link dropdown-toggle" href="#" id="dropdown-automobile" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						Automobile
 					</a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="#">Chaînes</a>
-						<a class="dropdown-item" href="#">Barres de toit</a>
+					<div class="dropdown-menu" aria-labelledby="dropdown-automobile">
+						<a class="dropdown-item" href="#vente-chaine">Chaînes</a>
+						<a class="dropdown-item" href="#vente-barre-toit">Barres de toit</a>
 					</div>
 				</li>
 			</ul>
-			<button type="button" class="btn btn-sm btn-outline-light m-2" data-toggle="modal" data-target="#modal-panier"><i class="fas fa-shopping-cart"></i></button>
-			<a href="#" class="btn btn-sm btn-outline-danger m-2"><i class="fas fa-sign-out-alt"></i></a>
+			<!-- <button type="button" class="btn btn-sm btn-outline-light m-2" data-toggle="modal" data-target="#modal-panier"><i class="fas fa-shopping-cart"></i></button> -->
+			<!-- <a href="#" class="btn btn-sm btn-outline-danger m-2"><i class="fas fa-sign-out-alt"></i></a> -->
 
 		</div>
 	</nav>
 </script>
 
-<script id="fragment-barre-navigation-bas" type="text/html">
+<script id="fragment-barre-navigation-bas" type="text/plain">
 	<footer class="container-fluid fixed-bottom">
 		<div class="row">
 			<div class="col-12 text-center">
@@ -172,18 +171,10 @@ Erreur dans l'app !
 	<div class="parallax-page-accueil-partie2"></div>
 </script>
 
-<script id="page-liste-article" type="text/html">
+<script id="page-liste-produit" type="text/plain">
 	<div class="container">
-		<div class="row mt-2">
-			<div class="col-3">
-				<div class="card my-2">
-					<img src="https://via.placeholder.com/150" class="card-img-top" width="150" height="150" alt="...">
-					<div class="card-body">
-						<h5 class="card-title">Card title</h5>
-						<p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-					</div>
-				</div>
-			</div>
+		<div class="row mt-2" id="liste-produit">
+			
 		</div>
 	</div>
 </script>
@@ -244,15 +235,16 @@ Erreur dans l'app !
 <!-- app - model -->
 <script src="app/modele/Categorie.js"></script>
 <script src="app/modele/Produit.js"></script>
-<script src="app/modele/ProduitPanier.js"></script>
 
 <!-- app - data -->
-<script src="app/donnee/ProduitPanierDAO.js"></script>
+<script src="app/donnee/ProduitDAO.js"></script>
 
 <!-- app - view -->
 <script src="app/vue/AccueilVue.js"></script>
+<script src="app/vue/ListeProduitVue.js"></script>
 
 <!-- app - controleur -->
 <script src="app/controleur/AccueilControleur.js"></script>
+<script src="app/controleur/ListeProduitControleur.js"></script>
 
 <script src="app/Main.js"></script>

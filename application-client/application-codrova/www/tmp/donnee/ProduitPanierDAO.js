@@ -57,4 +57,6 @@ class ProduitPanierDAO {
         }
         return this.listeProduitPanier;       
     }
+
+    
 }

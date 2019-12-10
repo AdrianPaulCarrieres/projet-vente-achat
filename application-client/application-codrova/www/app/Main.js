@@ -10,17 +10,16 @@
         if(!hash) {
             new AccueilControleur();
         }
-    }
+        else if(hash.match(/^#vente-([a-z]+)/)) {
+            var categorieProduit = hash.match(/^#vente-([a-z]+)/)[1];
+            new ListeProduitControleur(categorieProduit);
+        }
+
+    };
 
     initialiser();
 })();
 
-
-    // else if(hash.match(/^#confirmation-achat/)) {
-    //     confirmationAchatVue = new ConfirmationAchatVue();
-    //     confirmationAchatVue.afficher();
-        
-    // }
     // else if(hash.match(/^#confirmation-achat\/([0-9]+)/)){
     //     var navigation = hash.match(/^#modifier-devoir\/([0-9]+)/);
     //     var idDevoir = navigation[1];
