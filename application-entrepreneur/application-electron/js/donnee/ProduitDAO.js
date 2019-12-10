@@ -7,6 +7,10 @@ class ProduitDAO {
         this.collection = produit.COLLECTION;
     }
 
+    listerProduitSelonCategorie(nomCategorie) {
+        return baseDeDonnees.selectionnerDocumentsCollection('categorie', nomCategorie, this.collection);
+    }
+
     listerProduit(champ, valeurChamp) {
         return baseDeDonnees.selectionnerUnDocument(champ, valeurChamp, this.collection);
     }

@@ -68,6 +68,22 @@ exports.selectionnerUnDocument = async function (clef, valeur, collection) {
 
 }
 
+exports.selectionnerDocumentsSelonUnParametre = async function (clef, valeur, collection) {
+
+    var client = this.client();
+    const document = JSON.parse('{"' + clef + '":' + valeur + '}');
+
+    const c = await client.connect();
+
+    const db = c.db(this.dbName());
+    var resultat = await db.collection(collection).find(document).toArray();
+
+    this.fermer(client);
+
+    return resultat;
+
+}
+
 exports.selectionnerDocumentsCollection = async function (collection) {
 
     var client = this.client();
