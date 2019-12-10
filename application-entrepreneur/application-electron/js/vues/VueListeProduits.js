@@ -4,8 +4,9 @@ var VueListeProduits = (function () {
 
     return function () {
 
-        this.afficher = function () {
+        this.afficher = async function () {
             console.log("affichage");
+            //TODO: var resultatQuery = await produitDAO.nomMethode();
             elementBody = document.getElementsByTagName("body")[0];
             elementBody.innerHTML = navbar + pageListeProduits;
             var liste = document.getElementById("accordeon-categories");
