@@ -167,3 +167,4 @@ exports.supprimerDesDocuments = async function (clef, valeur, collection) {
     this.fermer(client);
 
 }
+

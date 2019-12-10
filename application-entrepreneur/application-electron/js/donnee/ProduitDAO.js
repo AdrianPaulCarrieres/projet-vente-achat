@@ -71,4 +71,35 @@ class ProduitDAO {
         return produit;
     }
 
+    listerProduitTableauStatistiques = async function () {
+
+        var client = baseDeDonnees.client();
+
+        const c = await client.connect();
+
+        const db = c.db(baseDeDonnees.dbName());
+
+        var resultat = db.collection('achat').aggregate([
+
+            { $lookup: { from: "produit", localField: "id_produit", foreignField: "id_produit", as: "produit" } },
+
+            { $unwind: "$produit" },
+
+            {
+                $group: {
+                    _id: "$produit",
+                    prix_total: { $sum: "$produit.prix" },
+                    prix_moyen: { $avg: "$produit.prix" },
+                    nombre_produit: { $sum: 1 }
+                }
+            }
+
+        ]).toArray();
+
+        baseDeDonnees.fermer(client);
+
+        return resultat;
+
+    }
+
 }
