@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 // const baseDeDonnees = require('./BaseDeDonneesMongoDB');
 // const achat = require('../modele/Achat');
+=======
+
+const achat = require('../modele/Achat');
+>>>>>>> f896a20c5bf87a23d2420f65ebc6d690990ce418
 
 class AchatDAO {
 

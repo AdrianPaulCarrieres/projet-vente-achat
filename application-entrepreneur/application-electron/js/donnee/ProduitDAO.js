@@ -29,15 +29,15 @@ class ProduitDAO {
     }
 
     listerTousLesProduits() {
-        var listeProduit = [];
+        /*var listeProduit = [];
 
         var n = Math.floor((Math.random() * 20) + 1);
         for(var x = 0; x < n; x++){
             listeProduit.push(this.creerProduitBidon);
         }
 
-        return listeProduit;
-        //return baseDeDonnees.selectionnerDocumentsCollection(this.collection);
+        return listeProduit;*/
+        return baseDeDonnees.selectionnerDocumentsCollection(this.collection);
     }
 
     ajouterDesProduits(tableauDeProduits) {
