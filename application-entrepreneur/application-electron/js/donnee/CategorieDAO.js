@@ -1,4 +1,4 @@
-const baseDeDonnees = require('./BaseDeDonneesMongoDB');
+// const baseDeDonnees = require('./BaseDeDonneesMongoDB');
 
 class CategorieDAO {
     

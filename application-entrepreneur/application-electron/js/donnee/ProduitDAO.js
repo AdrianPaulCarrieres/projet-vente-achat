@@ -1,5 +1,5 @@
-const baseDeDonnees = require('./BaseDeDonneesMongoDB');
-const produit = require('../modele/Produit');
+// const baseDeDonnees = require('./BaseDeDonneesMongoDB');
+// const produit = require('../modele/Produit');
 
 class ProduitDAO {
 
