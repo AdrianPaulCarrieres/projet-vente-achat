@@ -31,6 +31,14 @@ app.get('/perso/:id', async(req, res) => {
     res.json({ results });
 });
 
+app.get('/image/:id', async(req, res) => {
+    const { id } = req.params;
+    const conn = await connection(connexion).catch(e => {})
+
+
+
+});
+
 
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
