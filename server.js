@@ -4,9 +4,12 @@ const port = 3000
 const connection = require('./helpers/connection');
 const query = require('./helpers/query');
 
-
+//Librairies pour servir les images
 const path = require('path');
 const fs = require('fs');
+
+//Configuration du dossier où seront situées les dites images
+app.use(express.static('public'));
 
 var connexion = {
     user: 'master',
