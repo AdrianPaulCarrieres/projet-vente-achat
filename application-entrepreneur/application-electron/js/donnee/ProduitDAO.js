@@ -4,11 +4,12 @@
 class ProduitDAO {
 
     constructor(){
+        this.baseDeDonnees = new BaseDeDonneesMongoDB();
         this.collection = produit.COLLECTION;
     }
 
     listerProduitSelonCategorie(nomCategorie) {
-        return baseDeDonnees.selectionnerDocumentsCollection('categorie', nomCategorie, this.collection);
+        return this.baseDeDonnees.selectionnerDocumentsCollection('categorie', nomCategorie, this.collection);
     }
 
     listerProduit(champ, valeurChamp) {
@@ -17,15 +18,15 @@ class ProduitDAO {
     }
 
     ajouterProduit(produitAjout) {
-        baseDeDonnees.insererDocument(produitAjout, this.collection);
+        this.baseDeDonnees.insererDocument(produitAjout, this.collection);
     }
 
     modifierProduit(champ, valeurChamp, produitModifie) {
-        baseDeDonnees.modifierUnDocument(champ, valeurChamp, produitModifie, this.collection);
+        this.baseDeDonnees.modifierUnDocument(champ, valeurChamp, produitModifie, this.collection);
     }
 
     supprimerProduit(champ, valeurChamp) {
-        baseDeDonnees.supprimerUnDocument(champ, valeurChamp, this.collection);
+        this.baseDeDonnees.supprimerUnDocument(champ, valeurChamp, this.collection);
     }
 
     listerTousLesProduits() {
@@ -37,19 +38,19 @@ class ProduitDAO {
         }
 
         return listeProduit;*/
-        return baseDeDonnees.selectionnerDocumentsCollection(this.collection);
+        return this.baseDeDonnees.selectionnerDocumentsCollection(this.collection);
     }
 
     ajouterDesProduits(tableauDeProduits) {
-        baseDeDonnees.insererTableauElement(tableauDeProduits, this.collection);
+        this.baseDeDonnees.insererTableauElement(tableauDeProduits, this.collection);
     }
 
     modifierDesProduits(champ, valeurChamp, produitModifie) {
-        baseDeDonnees.modifierUnDocument(champ, valeurChamp, produitModifie, this.collection);
+        this.baseDeDonnees.modifierUnDocument(champ, valeurChamp, produitModifie, this.collection);
     }
 
     supprimerDesProduits(champ, valeurChamp) {
-        baseDeDonnees.supprimerDesDocuments(champ, valeurChamp, this.collection);
+        this.baseDeDonnees.supprimerDesDocuments(champ, valeurChamp, this.collection);
     }
 
     creerProduitBidon() {
@@ -73,11 +74,11 @@ class ProduitDAO {
 
     listerProduitTableauStatistiques = async function () {
 
-        var client = baseDeDonnees.client();
+        var client = this.baseDeDonnees.client();
 
         const c = await client.connect();
 
-        const db = c.db(baseDeDonnees.dbName());
+        const db = c.db(this.baseDeDonnees.dbName());
 
         var resultat = db.collection('achat').aggregate([
 
@@ -96,7 +97,7 @@ class ProduitDAO {
 
         ]).toArray();
 
-        baseDeDonnees.fermer(client);
+        this.baseDeDonnees.fermer(client);
 
         return resultat;
 
@@ -104,11 +105,11 @@ class ProduitDAO {
 
     valeurTotal = async function () {
 
-        var client = baseDeDonnees.client();
+        var client = this.baseDeDonnees.client();
 
         const c = await client.connect();
 
-        const db = c.db(baseDeDonnees.dbName());
+        const db = c.db(this.baseDeDonnees.dbName());
 
         var resultat = await db.collection('achat').aggregate([
             {
@@ -120,7 +121,7 @@ class ProduitDAO {
 
         ]).toArray();
 
-        baseDeDonnees.fermer(client);
+        this.baseDeDonnees.fermer(client);
 
         var retour = resultat[0].prix_total
 
@@ -129,11 +130,11 @@ class ProduitDAO {
 
     listerCategorieTableauStatistiques = async function () {
 
-        var client = baseDeDonnees.client();
+        var client = this.baseDeDonnees.client();
 
         const c = await client.connect();
 
-        const db = c.db(baseDeDonnees.dbName());
+        const db = c.db(this.baseDeDonnees.dbName());
 
         var resultat = db.collection('produit').aggregate([
             {
@@ -147,7 +148,7 @@ class ProduitDAO {
 
         ]).toArray();
 
-        baseDeDonnees.fermer(client);
+        this.baseDeDonnees.fermer(client);
 
         return resultat;
 
@@ -155,11 +156,11 @@ class ProduitDAO {
 
     listerMoisTableauStatistiques = async function () {
 
-        var client = baseDeDonnees.client();
+        var client = this.baseDeDonnees.client();
 
         const c = await client.connect();
 
-        const db = c.db(baseDeDonnees.dbName());
+        const db = c.db(this.baseDeDonnees.dbName());
 
         var resultat = db.collection('achat').aggregate([
 
@@ -178,7 +179,7 @@ class ProduitDAO {
 
         ]).toArray();
 
-        baseDeDonnees.fermer(client);
+        this.baseDeDonnees.fermer(client);
 
         return resultat;
 

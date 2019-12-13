@@ -2,6 +2,7 @@
 
     var initialiser = function () {
         window.addEventListener("hashchange", naviguer);
+
         produitDAO = new ProduitDAO();
         naviguer();
         console.log("naviguer");
