@@ -3,7 +3,7 @@
 class CategorieDAO {
     
     constructor(){
-        this.baseDeDonnees = new BaseDeDonneesMongoDB();
+        this.baseDeDonnees = new BaseDeDonneeMongo();
     }
 
     listerCategories() {

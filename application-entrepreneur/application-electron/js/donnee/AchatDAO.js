@@ -4,7 +4,7 @@
 class AchatDAO {
 
     constructor() {
-        this.baseDeDonnees = new this.baseDeDonneesMongoDB();
+        this.baseDeDonnees = new this.BaseDeDonneeMongo();
         this.collection = achat.COLLECTION;
     }
 

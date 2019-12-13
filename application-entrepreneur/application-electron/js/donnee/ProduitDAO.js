@@ -4,7 +4,7 @@
 class ProduitDAO {
 
     constructor(){
-        this.baseDeDonnees = new BaseDeDonneesMongoDB();
+        this.baseDeDonnees = new BaseDeDonneeMongo();
         this.collection = produit.COLLECTION;
     }
 
