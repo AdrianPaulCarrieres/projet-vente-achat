@@ -34,7 +34,15 @@ app.get('/perso/:id', async(req, res) => {
     res.json({ results });
 });
 
-app.get('/image/:id', async(req, res) => {
+app.get('/image/personnalisation/:id', async(req, res) => {
+    const { id } = req.params;
+    const conn = await connection(connexion).catch(e => {})
+
+
+
+});
+
+app.get('/image/produit/:id', async(req, res) => {
     const { id } = req.params;
     const conn = await connection(connexion).catch(e => {})
 
