@@ -5,7 +5,7 @@ class ProduitDAO {
 
     constructor(){
         this.baseDeDonnees = new BaseDeDonneeMongo();
-        this.collection = produit.COLLECTION;
+        this.collection = 'produit';
     }
 
     listerProduitSelonCategorie(nomCategorie) {

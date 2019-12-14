@@ -2,7 +2,7 @@
 
     var initialiser = function () {
         window.addEventListener("hashchange", naviguer);
-
+        categorieDAO = new CategorieDAO();
         produitDAO = new ProduitDAO();
         naviguer();
         console.log("naviguer");
@@ -15,8 +15,11 @@
             var vueStatistiques = new VueStatistiques();
             vueStatistiques.afficher();
         }else if(hash.match(/^#listeProduits/)){
+            var listeCategories = await categorieDAO.listerCategories();
             var listeProduits = await produitDAO.listerTousLesProduits();
-            var  vueListeProduits = new VueListeProduits(listeProduits);
+            console.log(listeProduits);
+            console.log(listeCategories);
+            var  vueListeProduits = new VueListeProduits(listeProduits, listeCategories);
             vueListeProduits.afficher();
         }
     };
