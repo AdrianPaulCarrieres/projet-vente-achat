@@ -9,7 +9,7 @@ git clone https://github.com/cegepmatane/projet-vente-achat-2019-lachancechristo
 cd projet-vente-achat-2019-lachancechristophe
 npm init
 npm i express mysql
-nodejs server.js
+node server.js
 ```
 
 ## Usage
