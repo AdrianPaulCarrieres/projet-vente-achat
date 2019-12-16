@@ -37,7 +37,7 @@ app.get('/perso/:id', async(req, res) => {
 app.get('/image/personnalisation/:id', async(req, res) => {
     const { id } = req.params;
 
-    var file = path.join(dir, 'personnalisation' + id);
+    var file = path.join(dir, 'personnalisation\\' + id);
     var type = 'image/jpeg';
 
     console.log("path", file);
@@ -56,7 +56,7 @@ app.get('/image/personnalisation/:id', async(req, res) => {
 app.get('/image/produit/:id', async(req, res) => {
     const { id } = req.params;
 
-    var file = path.join(dir, 'produit' + id);
+    var file = path.join(dir, 'produit\\' + id);
     var type = 'image/jpeg';
 
     console.log("path", file);
