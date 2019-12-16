@@ -9,7 +9,7 @@ const path = require('path');
 const fs = require('fs');
 
 //Configuration du dossier où seront situées les dites images
-app.use(express.static('public'));
+var dir = path.join(__dirname, 'public');
 
 var connexion = {
     user: 'master',
@@ -36,15 +36,24 @@ app.get('/perso/:id', async(req, res) => {
 
 app.get('/image/personnalisation/:id', async(req, res) => {
     const { id } = req.params;
-    const conn = await connection(connexion).catch(e => {})
 
+    var file = path.join(dir, 'personnalisation' + id);
+    var type = 'image/jpeg';
 
-
+    var s = fs.createReadStream(file);
+    s.on('open', function() {
+        res.set('Content-Type', type);
+        s.pipe(res);
+    });
+    s.on('error', function() {
+        res.set('Content-Type', 'text/plain');
+        res.status(404).end('Not found');
+    });
 });
 
 app.get('/image/produit/:id', async(req, res) => {
     const { id } = req.params;
-    const conn = await connection(connexion).catch(e => {})
+
 
 
 
