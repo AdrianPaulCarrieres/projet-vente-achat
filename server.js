@@ -40,6 +40,8 @@ app.get('/image/personnalisation/:id', async(req, res) => {
     var file = path.join(dir, 'personnalisation' + id);
     var type = 'image/jpeg';
 
+    console.log("path", file);
+
     var s = fs.createReadStream(file);
     s.on('open', function() {
         res.set('Content-Type', type);
@@ -54,11 +56,23 @@ app.get('/image/personnalisation/:id', async(req, res) => {
 app.get('/image/produit/:id', async(req, res) => {
     const { id } = req.params;
 
+    var file = path.join(dir, 'produit' + id);
+    var type = 'image/jpeg';
+
+    console.log("path", file);
+
+    var s = fs.createReadStream(file);
+    s.on('open', function() {
+        res.set('Content-Type', type);
+        s.pipe(res);
+    });
+    s.on('error', function() {
+        res.set('Content-Type', 'text/plain');
+        res.status(404).end('Not found');
+    });
 
 
 
 });
-
-
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
