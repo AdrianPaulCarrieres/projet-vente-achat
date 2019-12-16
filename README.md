@@ -1,4 +1,6 @@
-# Installation
+# WebService NodeJS
+
+## Installation
 
 Copier le répertoire et installer les modules Node.JS
 
@@ -10,17 +12,28 @@ npm i express mysql
 nodejs server.js
 ```
 
-# Usage
+## Usage
 
-## Lister toutes les personnalisations 
+### Lister toutes les personnalisations
 
-```
+```bash
 curl http://localhost:3000/persos
 ```
 
-## Lire une seule personnalisations
+### Lire une seule personnalisations
 
-```
+```bash
 curl http://localhost:3000/perso/1
 ```
 
+### Récupérer l'image d'une seule personnalisation
+
+```bash
+curl http://localhost:3000//image/personnalisation/1
+```
+
+### Récupérer l'image d'un seul produit
+
+```bash
+curl http://localhost:3000//image/produit/1
+```
