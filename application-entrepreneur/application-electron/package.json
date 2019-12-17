@@ -21,6 +21,7 @@
     "electro": "^2.1.1"
   },
   "dependencies": {
-    "mongodb": "^3.4.0"
+    "mongodb": "^3.4.0",
+    "redis": "^2.8.0"
   }
 }

@@ -1,9 +1,12 @@
-const express = require('express')
+/*const express = require('express')
 const app = express()
 const port = 3000
-const connection = require('./helpers/connection');
+const connection = require('./helpers/connection');*/
 const query = require('./helpers/query');
-
+const redis = require('redis');
+const host = "6379";
+const port = "127.0.0.1";
+const client = redis.createClient(port, host);
 //Librairies pour servir les images
 const path = require('path');
 const fs = require('fs');
