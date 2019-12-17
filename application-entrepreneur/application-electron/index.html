@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Entrepreneur</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/entrepreneurCss.css">
+</head>
+<body>
+erreur
+<script type="text/html" id="navbar">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">SnowCool</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="#">Statistiques </a>
+                <a class="nav-item nav-link active" href="#listeProduits">Produits</a>
+            </div>
+        </div>
+    </nav>
+</script>
+<script type="text/html" id="pages_statistiques">
+    <div class="container center justify-content-center align-items-center">
+        <div class="row d-flex justify-content-between">
+            <table id="tableau_annee" class="table table-bordered table-dark col-5 left">
+                <thead>
+                <tr><th></th><th colspan="3">vente</th><th colspan="2">Meilleurs</th></tr>
+                <tr><th></th><th>nombre</th><th>total</th><th>moyenne</th><th>Meilleur produit</th><th>meilleure categorie</th></tr>
+                </thead>
+                <tbody id="corps_tableau_annee">
+
+                </tbody>
+            </table>
+            <div id="carte_chiffre_affaire" class=" right card col-6">
+                <div class="card-body">
+                    <h5 class="card-title">Chiffre d'affaire</h5>
+                    <p class="card-text" id="chiffre_affaire">$ 56 000</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <table id="tableau_produit" class="table table-bordered table-dark col-5">
+                <thead>
+                <tr><th></th><th colspan="3">Vente</th><th colspan="2">Meilleurs</th></tr>
+                <tr><th></th><th>Nombre</th><th>Total</th><th>Moyenne</th><th>Meilleur mois</th><th>Meilleure categorie</th></tr>
+                </thead>
+                <tbody id="corps_tableau_produit">
+
+                </tbody>
+            </table>
+            <table id="tableau_categorie" class="table table-bordered table-dark col-5">
+                <thead>
+                <tr><th></th><th colspan="3">Vente</th><th colspan="2">Meilleurs</th></tr>
+                <tr><th></th><th>Nombre</th><th>Total</th><th>Moyenne</th><th>Meilleur produit</th><th>Meilleur mois</th></tr>
+                </thead>
+                <tbody id="corps_tableau_categorie">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</script>
+
+<script type="text/html" id="page-liste-produits">
+        <div class="row justify-content-center align-items-center">
+            <h2>Liste des produits par catégorie</h2>
+        </div>
+        <a href="#ajouterProduit">lien test</a>
+        <div class="row justify-content-center align-items-center">
+            <div class="accordion col-8" id="accordeon-categories">
+
+            </div>
+        </div>
+
+</script>
+
+<script id="page-ajouter" type="text/html">
+    <form id="formulaire-ajouter">
+        <div class="container">
+
+            <div class="form-group">
+                <label for="ajouter-nom" class="col-form-label">Nom:</label>
+                <input type="text" class="form-control" id="ajouter-nom">
+            </div>
+            <div class="form-group">
+                <label for="ajouter-etiquette" class="col-form-label">Etiquette:</label>
+                <input type="text" class="form-control" id="ajouter-etiquette">
+            </div>
+            <div class="form-group">
+                <label for="ajouter-marque" class="col-form-label">Marque:</label>
+                <input type="text" class="form-control" id="ajouter-marque">
+            </div>
+            <div class="form-group">
+                <label for="ajouter-modele" class="col-form-label">Modele:</label>
+                <input type="text" class="form-control" id="ajouter-modele">
+            </div>
+            <div class="form-group">
+                <label for="ajouter-prix" class="col-form-label">Prix:</label>
+                <input type="text" class="form-control" id="ajouter-prix">
+            </div>
+            <div class="form-group">
+                <label for="ajouter-image">Image</label>
+                <input type="file" class="form-control-file" id="ajouter-image">
+            </div>
+            <input type="text" class="form-control-file" id="ajouter-id-categorie" hidden>
+
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-secondary" data-dismiss="modal">Ajouter</button>
+        </div>
+    </form>
+</script>
+
+<script type="text/html" id="page-modifier">
+    <form id="formulaire-modifier">
+        <div class="container">
+
+            <div class="form-group">
+                <label for="modifier-nom" class="col-form-label">Nom:</label>
+                <input type="text" class="form-control" id="modifier-nom">
+            </div>
+            <div class="form-group">
+                <label for="modifier-etiquette" class="col-form-label">Etiquette:</label>
+                <input type="text" class="form-control" id="modifier-etiquette">
+            </div>
+            <div class="form-group">
+                <label for="modifier-marque" class="col-form-label">Marque:</label>
+                <input type="text" class="form-control" id="modifier-marque">
+            </div>
+            <div class="form-group">
+                <label for="modifier-modele" class="col-form-label">Modele:</label>
+                <input type="text" class="form-control" id="modifier-modele">
+            </div>
+            <div class="form-group">
+                <label for="modifier-prix" class="col-form-label">Prix:</label>
+                <input type="text" class="form-control" id="modifier-prix">
+            </div>
+            <div class="form-group">
+                <label for="modifier-image">Image</label>
+                <input type="file" class="form-control-file" id="modifier-image">
+            </div>
+            <input type="text" class="form-control-file" id="modifier-id-categorie" hidden>
+
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-secondary" data-dismiss="modal">Modifier</button>
+        </div>
+    </form>
+</script>
+
+
+<script>
+    function modalAjouter(idCategorie){
+        $('#champ-id-categorie').val(idCategorie);
+    }
+</script>
+
+</body>
+
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="js/donnee/Credentials.js"></script>
+<script src="js/require.js"></script>
+
+<script src="js/modele/Produit.js"></script>
+<script src="js/donnee/BaseDeDonneesMongoDB.js"></script>
+<script src="js/donnee/CategorieDAO.js"></script>
+<script src="js/donnee/ProduitDAO.js"></script>
+<script src="js/donnee/AchatDAO.js"></script>
+<script src="js/vues/VueStatistiques.js"></script>
+<script src="js/vues/VueAjouterProduit.js"></script>
+<script src="js/vues/VueModifierProduit.js"></script>
+<script src="js/vues/VueListeProduits.js"></script>
+<script src="js/controleurs/controleur.js"></script>
+</html>

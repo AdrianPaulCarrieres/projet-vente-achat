@@ -1,0 +1,26 @@
+{
+  "name": "application-electron",
+  "version": "1.0.0",
+  "description": "Application de bureau pour la gestion de la boutique",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cegepmatane/projet-vente-achat-2019-lachancechristophe.git"
+  },
+  "author": "Estevan Gay",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cegepmatane/projet-vente-achat-2019-lachancechristophe/issues"
+  },
+  "homepage": "https://github.com/cegepmatane/projet-vente-achat-2019-lachancechristophe#readme",
+  "devDependencies": {
+    "electro": "^2.1.1"
+  },
+  "dependencies": {
+    "mongodb": "^3.4.0"
+  }
+}
