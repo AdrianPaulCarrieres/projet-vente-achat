@@ -51,7 +51,13 @@ var VueListeProduits = (function () {
                 texteListeCategories+='</div>'
             }
             liste.innerHTML = texteListeCategories;
-        }
+
+            var formulaireAjouter = document.getElementById("formulaire-ajouter");
+            formulaireAjouter.addEventListener("submit", enregistrer);
+
+            var formulaireModifier = document.getElementById("formulaire-modifier");
+            formulaireModifier.addEventListener("submit", modifier);
+        };
         var enregistrer = function(evenement){
             evenement.preventDefault();
 
@@ -64,7 +70,7 @@ var VueListeProduits = (function () {
             var idCategorie = document.getElementById("ajouter-id-categorie").value;
             var produit = new Produit(null, nom, etiquette, idCategorie, prix, marque, modele, image, true);
             actionAjouterProduit(produit);
-        }
+        };
 
         var modifier = function (evenement) {
             evenement.preventDefault();
@@ -76,10 +82,11 @@ var VueListeProduits = (function () {
             var prix = document.getElementById("modifier-prix").value;
             var image = document.getElementById("modifier-image").value;
             var idCategorie = document.getElementById("modifier-id-categorie").value;
-            var produit = new Produit(null, nom, etiquette, idCategorie, prix, marque, modele, image, true);
+            var idProduit = document.getElementById("modifier-id-produit").value;
+            var produit = new Produit(idProduit, nom, etiquette, idCategorie, prix, marque, modele, image, true);
             actionModifierProduit(produit);
 
-        }
+        };
     };
 
 
