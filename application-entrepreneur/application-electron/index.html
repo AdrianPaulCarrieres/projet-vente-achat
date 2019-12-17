@@ -68,30 +68,17 @@ erreur
         <div class="row justify-content-center align-items-center">
             <h2>Liste des produits par catégorie</h2>
         </div>
+        <a href="#ajouterProduit">lien test</a>
         <div class="row justify-content-center align-items-center">
             <div class="accordion col-8" id="accordeon-categories">
 
             </div>
         </div>
 
-        <div class="modal fade" id="modal-modifier" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel2">Ajout d'un produit</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-
-
-                </div>
-            </div>
-        </div>
 </script>
 
 <script id="page-ajouter" type="text/html">
-    <form id="formulaire-ajout">
+    <form id="formulaire-ajouter">
         <div class="container">
 
             <div class="form-group">
@@ -179,11 +166,15 @@ erreur
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <script src="js/donnee/Credentials.js"></script>
 <script src="js/require.js"></script>
+
+<script src="js/modele/Produit.js"></script>
 <script src="js/donnee/BaseDeDonneesMongoDB.js"></script>
 <script src="js/donnee/CategorieDAO.js"></script>
 <script src="js/donnee/ProduitDAO.js"></script>
 <script src="js/donnee/AchatDAO.js"></script>
 <script src="js/vues/VueStatistiques.js"></script>
+<script src="js/vues/VueAjouterProduit.js"></script>
+<script src="js/vues/VueModifierProduit.js"></script>
 <script src="js/vues/VueListeProduits.js"></script>
 <script src="js/controleurs/controleur.js"></script>
 </html>

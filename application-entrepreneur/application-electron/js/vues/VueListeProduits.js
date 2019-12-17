@@ -34,12 +34,12 @@ var VueListeProduits = (function () {
                             '                        <div class="col-6">\n' + listeProduits[j].etiquette +
                             '                        </div>\n' +
                             '                        <div class="col-4">\n' +
-                            '                            <button class="btn btn-warning">\n' +
+                            '                            <a href="#ModifierProduit/'+ listeProduits[j].id +'" class="btn btn-warning">\n' +
                             '                                Mod\n' +
-                            '                            </button>\n' +
-                            '                            <button class="btn btn-danger">\n' +
+                            '                            </a>\n' +
+                            '                            <a href="#AjouterProduit" class="btn btn-danger">\n' +
                             '                                Sup\n' +
-                            '                            </button>\n' +
+                            '                            </a>\n' +
                             '                        </div>\n' +
                             '                        </div>\n' +
                             '                    </li>\n'
@@ -51,40 +51,6 @@ var VueListeProduits = (function () {
                 texteListeCategories+='</div>'
             }
             liste.innerHTML = texteListeCategories;
-
-            var formulaireAjouter = document.getElementById("formulaire-ajouter");
-            formulaireAjouter.addEventListener("submit", enregistrer);
-
-            var formulaireModifier = document.getElementById("formulaire-modifier");
-            formulaireModifier.addEventListener("submit", modifier);
-        };
-        var enregistrer = function(evenement){
-            evenement.preventDefault();
-
-            var nom = document.getElementById("ajouter-nom").value;
-            var etiquette= document.getElementById("ajouter-etiquette").value;
-            var marque = document.getElementById("ajouter-marque").value;
-            var modele = document.getElementById("ajouter-modele").value;
-            var prix = document.getElementById("ajouter-prix").value;
-            var image = document.getElementById("ajouter-image").value;
-            var idCategorie = document.getElementById("ajouter-id-categorie").value;
-            var produit = new Produit(null, nom, etiquette, idCategorie, prix, marque, modele, image, true);
-            actionAjouterProduit(produit);
-        };
-
-        var modifier = function (evenement) {
-            evenement.preventDefault();
-
-            var nom = document.getElementById("modifier-nom").value;
-            var etiquette= document.getElementById("modifier-etiquette").value;
-            var marque = document.getElementById("modifier-marque").value;
-            var modele = document.getElementById("modifier-modele").value;
-            var prix = document.getElementById("modifier-prix").value;
-            var image = document.getElementById("modifier-image").value;
-            var idCategorie = document.getElementById("modifier-id-categorie").value;
-            var idProduit = document.getElementById("modifier-id-produit").value;
-            var produit = new Produit(idProduit, nom, etiquette, idCategorie, prix, marque, modele, image, true);
-            actionModifierProduit(produit);
 
         };
     };
