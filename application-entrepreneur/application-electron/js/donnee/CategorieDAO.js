@@ -2,10 +2,12 @@
 
 class CategorieDAO {
     
-    constructor(){}
+    constructor(){
+        this.baseDeDonnees = new BaseDeDonneeMongo();
+    }
 
     listerCategories() {
-        return baseDeDonnees.selectionnerDocumentsCollection('categorie');
+        return this.baseDeDonnees.selectionnerDocumentsCollection('categorie');
     }
 
 }

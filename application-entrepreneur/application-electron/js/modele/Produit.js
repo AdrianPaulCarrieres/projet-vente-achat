@@ -1,5 +1,5 @@
 // exports.COLLECTION = 'produit';
-
+//
 // module.exports = {
 //     Produit: function (idProduit, nomProduit, etiquette, categorie, prix, marque, modele, cheminImage, flagDisponibilite) {
 //         this.id_produit = idProduit;
