@@ -21,9 +21,19 @@
             var listeProduits = await produitDAO.listerTousLesProduits();
             console.log(listeProduits);
             console.log(listeCategories);
-            var  vueListeProduits = new VueListeProduits(listeProduits, listeCategories);
+            var  vueListeProduits = new VueListeProduits(listeProduits, listeCategorie, actionAjouterProduit, actionModifierProduit);
             vueListeProduits.afficher();
         }
+    };
+
+    var actionAjouterProduit = function(produit){
+        produitDAO.ajouterProduit(produit);
+        window.location.hash = "#listeProduit";
+    };
+
+    var actionModifierProduit = function(produit){
+        produitDAO.modifierProduit(produit);
+        window.location.hash = "#listeProduit";
     };
 
     initialiser();
