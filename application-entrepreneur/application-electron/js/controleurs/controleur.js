@@ -12,7 +12,9 @@
         var hash = window.location.hash;
 
         if (!hash){
-            var vueStatistiques = new VueStatistiques();
+            listeProduitsStatistiques = produitDAO.listerProduitTableauStatistiques();
+            listeCategoriesStatistiques = produitDAO.listerCategorieTableauStatistiques();
+            var vueStatistiques = new VueStatistiques(listeProduitsStatistiques, listeCategoriesStatistiques);
             vueStatistiques.afficher();
         }else if(hash.match(/^#listeProduits/)){
             var listeCategories = await categorieDAO.listerCategories();

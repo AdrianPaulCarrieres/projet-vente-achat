@@ -2,27 +2,27 @@ var VueStatistiques = (function () {
     navbar = document.getElementById("navbar").innerHTML;
     pageStatistiques = document.getElementById("pages_statistiques").innerHTML;
 
-    return function () {
+    return function (listeProduitsStatistiques, listeCategoriesStatistiques) {
 
         this.afficher = function () {
             console.log("affichage");
             elementBody = document.getElementsByTagName("body")[0];
             elementBody.innerHTML = navbar + pageStatistiques;
             peuplerTableauAnnee();
-            peuplerTableauProduit();
+            peuplerTableauProduit(listeProduitsStatistiques);
             peublerTableauCategories();
         }
     };
 
-    function peuplerTableauProduit() {
+    function peuplerTableauProduit(listeProduitsStatistiques) {
         tableauProduits = document.getElementById("corps_tableau_produit");
         var produit, nombre, total,  moyenne, categorie, meilleurMois
         var textTableau = "";
-        for (let i = 0; i < 6; i++) {
+        for (let i = 0; i < listeProduitsStatistiques.length; i++) {
             produit = "ski";
-            nombre = 85;
-            total = "$3610";
-            moyenne = "$60$";
+            nombre = listeProduitsStatistiques[i].nombre_produit;
+            total = listeProduitsStatistiques[i].prix_total;
+            moyenne = listeProduitsStatistiques[i].prix_moyen;
             categorie = "equipement";
             meilleurMois = "Novembre";
             textTableau += "<tr>"
