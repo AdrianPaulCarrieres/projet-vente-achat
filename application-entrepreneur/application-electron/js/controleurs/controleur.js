@@ -19,8 +19,6 @@
         }else if(hash.match(/^#listeProduits/)){
             var listeCategories = await categorieDAO.listerCategories();
             var listeProduits = await produitDAO.listerTousLesProduits();
-            console.log(listeProduits);
-            console.log(listeCategories);
             var  vueListeProduits = new VueListeProduits(listeProduits, listeCategories);
             vueListeProduits.afficher();
         }else if(hash.match(/^#ajouterProduit/)){
@@ -36,12 +34,12 @@
 
     var actionAjouterProduit = function(produit){
         produitDAO.ajouterProduit(produit);
-        window.location.hash = "#listeProduit";
+        window.location.hash = "#listeProduits";
     };
 
     var actionModifierProduit = function(produit){
         produitDAO.modifierProduit(produit);
-        window.location.hash = "#listeProduit";
+        window.location.hash = "#listeProduits";
     };
 
     initialiser();

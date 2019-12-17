@@ -10,7 +10,7 @@ var VueStatistiques = (function () {
             elementBody.innerHTML = navbar + pageStatistiques;
             peuplerTableauAnnee();
             peuplerTableauProduit(listeProduitsStatistiques);
-            peublerTableauCategories();
+            peublerTableauCategories(listeCategoriesStatistiques);
         }
     };
 
@@ -37,15 +37,15 @@ var VueStatistiques = (function () {
         tableauProduits.innerHTML = textTableau;
     }
 
-    function peublerTableauCategories() {
+    function peublerTableauCategories(listeCategoriesStatistiques) {
         tableauCategories = document.getElementById("corps_tableau_categorie");
         var categorie, nombre, total,  moyenne, meilleurProduit, meilleurMois
         var textTableau = "";
-        for (let i = 0; i < 6; i++) {
+        for (let i = 0; i < listeCategoriesStatistiques.length; i++) {
             categorie = "vetements";
-            nombre = 85;
-            total = "$3610";
-            moyenne = "$60$";
+            nombre = listeCategoriesStatistiques[i].nombre_produit;
+            total = listeCategoriesStatistiques[i].prix_total;
+            moyenne = listeCategoriesStatistiques[i].prix_moyen;
             meilleurProduit = "casque";
             meilleurMois = "Novembre";
             textTableau += "<tr>"
