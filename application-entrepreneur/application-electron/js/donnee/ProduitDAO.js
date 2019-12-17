@@ -184,4 +184,34 @@ class ProduitDAO {
 
     }
 
+    async trouverDernierIdProduit() {
+
+        // console.log('trouverDernierId()');
+
+        var client = baseDeDonnees.client();
+
+        const c = await client.connect();
+
+        const db = c.db(baseDeDonnees.dbName());
+
+        var resultat = await db.collection('produit').aggregate([
+
+            {
+                $sort: { "id_produit": -1 }
+            },
+
+            {
+                $limit: 1
+            }
+
+        ]).toArray();
+
+        await baseDeDonnees.fermer(client);
+
+        // console.log(resultat.length, resultat);
+
+        return resultat[0]['id_produit'];
+
+    }
+
 }
