@@ -2,11 +2,20 @@ var VueModifierProduit = (function () {
     navbar = document.getElementById("navbar").innerHTML;
     pageModifierProduit = document.getElementById("page-modifier").innerHTML;
 
-    return function (actionModifierProduit) {
-
+    return function (produit, actionModifierProduit) {
+        this.produit;
         this.afficher = function () {
             elementBody = document.getElementsByTagName("body")[0];
             elementBody.innerHTML = navbar + pageModifierProduit;
+
+            document.getElementById("modifier-nom").value = this.produit.nom;
+            document.getElementById("modifier-etiquette").value = this.produit.etiquette;
+            document.getElementById("modifier-marque").value = this.produit.marque;
+            document.getElementById("modifier-modele").value = this.produit.modele;
+            document.getElementById("modifier-prix").value = this.produit.prix;
+            document.getElementById("modifier-image").value = this.produit.image;
+            document.getElementById("modifier-id-categorie").value = this.produit.categorie;
+            document.getElementById("modifier-id-produit").value = this.id;
 
             var formulaireModifier = document.getElementById("formulaire-modifier");
             formulaireModifier.addEventListener("submit", modifier);

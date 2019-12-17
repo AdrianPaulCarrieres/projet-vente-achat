@@ -21,8 +21,14 @@
             var listeProduits = await produitDAO.listerTousLesProduits();
             console.log(listeProduits);
             console.log(listeCategories);
-            var  vueListeProduits = new VueListeProduits(listeProduits, listeCategorie, actionAjouterProduit, actionModifierProduit);
+            var  vueListeProduits = new VueListeProduits(listeProduits, listeCategorie);
             vueListeProduits.afficher();
+        }else if(hash.match(/^#ajouterProduit/)){
+            var ajouterProduit = new VueAjouterProduit(actionAjouterProduit);
+            ajouterProduit.afficher();
+        }else if(hash.match(/^#modifierProduit/)){
+            var modifierProduit = new VueModifierProduit(actionModifierProduit);
+            modifierProduit.afficher();
         }
     };
 
