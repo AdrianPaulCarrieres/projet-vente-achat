@@ -7,6 +7,11 @@ const redis = require('redis');
 const host = "6379";
 const port = "127.0.0.1";
 const client = redis.createClient(port, host);
+
+client.on('connect', function () {
+    console.log('connecté');
+})
+
 //Librairies pour servir les images
 const path = require('path');
 const fs = require('fs');
@@ -23,9 +28,33 @@ var connexion = {
 
 app.get('/', (req, res) => res.send('Hello World!'))
 
-app.get('/persos', async(req, res) => {
+/*app.get('/persos', async(req, res) => {
     const conn = await connection(connexion).catch(e => {})
     const results = await query(conn, 'SELECT * FROM personnalisation').catch(console.log);
+    res.json({ results });
+})*/
+
+app.get('/persos', async(req, res) => {
+    results = []
+    var i = 1
+    var exists = true;
+    var key;
+    const results = [];
+    while (exists){
+        key = "personnalisation"+i;
+        client.exists(key, function(err, reply) {
+            if (reply === 1) {
+                console.log('exists');
+                client.hgetall(key, function(err, personnalisation) {
+                    console.log(personnalisation);
+                    results.push(personnalisation);
+                });
+            } else {
+                exists = false;
+                console.log('doesn\'t exist');
+            }
+        });
+    }
     res.json({ results });
 })
 

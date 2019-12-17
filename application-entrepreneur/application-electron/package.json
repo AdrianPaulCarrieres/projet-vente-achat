@@ -21,7 +21,9 @@
     "electro": "^2.1.1"
   },
   "dependencies": {
+    "express": "^4.17.1",
     "mongodb": "^3.4.0",
+    "mysql": "^2.17.1",
     "redis": "^2.8.0"
   }
 }
