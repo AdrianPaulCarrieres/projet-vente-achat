@@ -13,9 +13,15 @@ var VueListeProduits = (function () {
             var liste = document.getElementById("accordeon-categories");
             var texteListeCategories = liste.innerHTML;
             for (let i = 0; i < listeCategories.length; i++) {
+                if (i==0){
+                    img = "img/ski.png";
+                }else{
+                    img = "img/snowboard.png";
+                }
                 texteListeCategories+= '<div class="card">\n' +
                     '            <div class="card-header" id="heading'+i+'">\n' +
                     '                <h2 class="mb-0">\n' +
+                    '                            <img src="'+img+'" width="50" height="50">\n' +
                     '                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse'+i+'" aria-expanded="false" aria-controls="collapse'+i+'">\n' + listeCategories[i].etiquette +
                     '                    </button>\n' +
                     '                </h2>\n' +
@@ -23,7 +29,7 @@ var VueListeProduits = (function () {
                     '<div id="collapse'+i+'" class="collapse " aria-labelledby="heading'+i+'" data-parent="#accordeon-categories">\n' +
                 '                <ul class="list-group">\n';
                 for (let j = 0; j < listeProduits.length ; j++) {
-                    if (listeCategories[i].id == listeProduits[j].id_categorie) {
+                    if (listeCategories[i].etiquette == listeProduits[j].categorie) {
                         texteListeCategories += '' +
 
                             '                    <li class="list-group-item">\n' +
@@ -34,18 +40,18 @@ var VueListeProduits = (function () {
                             '                        <div class="col-6">\n' + listeProduits[j].etiquette +
                             '                        </div>\n' +
                             '                        <div class="col-4">\n' +
-                            '                            <a href="#ModifierProduit/'+ listeProduits[j].id +'" class="btn btn-warning">\n' +
-                            '                                Mod\n' +
+                            '                            <a  href="#ModifierProduit/'+ listeProduits[j].id +'" class="btn btn-warning">\n' +
+                            '                                <i class="fas fa-pen"></i>\n' +
                             '                            </a>\n' +
                             '                            <a href="#AjouterProduit" class="btn btn-danger">\n' +
-                            '                                Sup\n' +
+                            '                                <i class="fas fa-trash"></i>\n' +
                             '                            </a>\n' +
                             '                        </div>\n' +
                             '                        </div>\n' +
                             '                    </li>\n'
                     }
                 }
-                texteListeCategories += '<li class="list-group-item list-group-item-action list-group-item-success"><div class="row justify-content-center align-items-center"><div class="col-3"><button class="btn btn-success" onclick="modalAjouter('+listeCategories[i].id+')" data-toggle="modal" data-target="#modal-ajout">Ajouter un produit</button></div></div></li>' +
+                texteListeCategories += '<li class="list-group-item list-group-item-action list-group-item-success"><div class="row justify-content-center align-items-center"><div class="col-3 row justify-content-center align-items-center" ><button class="btn btn-success" onclick="modalAjouter('+listeCategories[i].id+')" data-toggle="modal" data-target="#modal-ajout"><i class="fas fa-plus"></i></button></div></div></li>' +
                     '                </ul>\n' +
                     '            </div>';
                 texteListeCategories+='</div>'
