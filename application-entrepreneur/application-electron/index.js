@@ -1,5 +1,20 @@
 const { app, BrowserWindow } = require('electron')
 
+var firebaseConfig = {
+    apiKey: "AIzaSyARv2uC3kvomUtGlsKKS8WrBWUg8QnEzyQ",
+    authDomain: "infonuagique-vente-achat.firebaseapp.com",
+    databaseURL: "https://infonuagique-vente-achat.firebaseio.com",
+    projectId: "infonuagique-vente-achat",
+    storageBucket: "infonuagique-vente-achat.appspot.com",
+    messagingSenderId: "444517708623",
+    appId: "1:444517708623:web:cd52a5a747cc3b3e648b3a",
+    measurementId: "G-PKS15CN8N7"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
+
+
 // Gardez une reference globale de l'objet window, si vous ne le faites pas, la fenetre sera
 // fermee automatiquement quand l'objet JavaScript sera garbage collected.
 let win
