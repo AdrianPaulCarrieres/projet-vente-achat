@@ -12,8 +12,8 @@ const fs = require('fs');
 var dir = path.join(__dirname, 'public');
 
 var connexion = {
-    user: 'master',
-    password: '',
+    user: 'postgres',
+    password: 'mission',
     host: 'localhost',
     database: 'vente_achat'
 };
@@ -56,7 +56,7 @@ app.get('/image/personnalisation/:id', async(req, res) => {
 app.get('/image/produit/:id', async(req, res) => {
     const { id } = req.params;
 
-    var file = path.join(dir, 'produit\\' + id);
+    var file = path.join(dir, 'produit\\produit' + id + ".jpg");
     var type = 'image/jpeg';
 
     console.log("path", file);

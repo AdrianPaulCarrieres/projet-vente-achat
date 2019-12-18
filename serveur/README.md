@@ -7,7 +7,7 @@ Copier le répertoire et installer les modules Node.JS
 ```bash
 git clone https://github.com/cegepmatane/projet-vente-achat-2019-lachancechristophe
 cd projet-vente-achat-2019-lachancechristophe
-npm init
+
 npm i express mysql
 node server.js
 ```
