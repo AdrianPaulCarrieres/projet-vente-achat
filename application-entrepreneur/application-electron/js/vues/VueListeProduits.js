@@ -51,7 +51,7 @@ var VueListeProduits = (function () {
                             '                    </li>\n'
                     }
                 }
-                texteListeCategories += '<li class="list-group-item list-group-item-action list-group-item-success"><div class="row justify-content-center align-items-center"><div class="col-3 row justify-content-center align-items-center" ><a href="#ajouterProduit\"'+ listeCategories[i].id +' class="btn btn-success"  data-toggle="modal" data-target="#modal-ajout"><i class="fas fa-plus"></i></a></div></div></li>' +
+                texteListeCategories += '<li class="list-group-item list-group-item-action list-group-item-success"><div class="row justify-content-center align-items-center"><div class="col-3 row justify-content-center align-items-center" ><a href="#ajouterProduit/'+ listeCategories[i].id_categorie +'" class="btn btn-success" ><i class="fas fa-plus"></i></a></div></div></li>' +
                     '                </ul>\n' +
                     '            </div>';
                 texteListeCategories+='</div>'

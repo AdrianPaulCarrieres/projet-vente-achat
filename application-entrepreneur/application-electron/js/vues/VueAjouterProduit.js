@@ -2,7 +2,10 @@ var VueAjouterProduit = (function () {
     navbar = document.getElementById("navbar").innerHTML;
     pageAjouterProduit = document.getElementById("page-ajouter").innerHTML;
 
-    return function (actionAjouterProduit, etiquetteCategorie) {
+    return function (actionAjouterProduit, etiquetteCategorie, taille) {
+        console.log(etiquetteCategorie);
+        console.log(taille);
+        this.taille = taille;
         this.etiquetteCategorie = etiquetteCategorie;
         this.afficher = function () {
             elementBody = document.getElementsByTagName("body")[0];
@@ -20,8 +23,9 @@ var VueAjouterProduit = (function () {
             var modele = document.getElementById("ajouter-modele").value;
             var prix = document.getElementById("ajouter-prix").value;
             var image = document.getElementById("ajouter-image").value;
-            var idCategorie = this.etiquetteCategorie;
-            var produit = new Produit(null, nom, etiquette, idCategorie, prix, marque, modele, image, true);
+            var idCategorie = etiquetteCategorie;
+            console.log(taille);
+            var produit = new Produit(taille, nom, etiquette, idCategorie, prix, marque, modele, image, true);
             actionAjouterProduit(produit);
         };
 

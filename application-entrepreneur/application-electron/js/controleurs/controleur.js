@@ -18,20 +18,30 @@
             vueStatistiques.afficher();
         }else if(hash.match(/^#listeProduits/)){
             var listeCategories = await categorieDAO.listerCategories();
+            console.log(listeCategories);
             var listeProduits = await produitDAO.listerTousLesProduits();
             var  vueListeProduits = new VueListeProduits(listeProduits, listeCategories);
             vueListeProduits.afficher();
         }else if(hash.match(/^#ajouterProduit\/([0-9]+)/)){
+            console.log("ajout");
             var navigation = hash.match(/^#ajouterProduit\/([0-9]+)/);
             var idCategories = navigation[1];
-            listeCategories = categorieDAO.listerCategories();
+            listeCategories = await categorieDAO.listerCategories();
+            var liste = await produitDAO.listerTousLesProduits();
+            var taille = liste.length;
+            console.log(taille);
+            console.log(idCategories);
             var etiquetteCategorie = "";
+            console.log(listeCategories);
+
             for (let i = 0; i < listeCategories.length; i++) {
-                if (listeCategories[i].id == idCategories ){
+                if (listeCategories[i].id_categorie == idCategories ){
+                    console.log(listeCategories[i].etiquette);
                     etiquetteCategorie = listeCategories[i].etiquette;
                 }
             }
-            var ajouterProduit = new VueAjouterProduit(actionAjouterProduit, etiquetteCategorie);
+            console.log(etiquetteCategorie);
+            var ajouterProduit = new VueAjouterProduit(actionAjouterProduit, etiquetteCategorie, taille);
             ajouterProduit.afficher();
         }else if(hash.match(/^#modifierProduit\/([0-9]+)/)){
             var navigation = hash.match(/^#modifierProduit\/([0-9]+)/);

@@ -18,6 +18,7 @@ class ProduitDAO {
     }
 
     ajouterProduit(produitAjout) {
+        console.log(produitAjout);
         this.baseDeDonnees.insererDocument(produitAjout, this.collection);
     }
 
@@ -189,11 +190,11 @@ class ProduitDAO {
 
         // console.log('trouverDernierId()');
 
-        var client = baseDeDonnees.client();
+        var client = this.baseDeDonnees.client();
 
         const c = await client.connect();
 
-        const db = c.db(baseDeDonnees.dbName());
+        const db = c.db(this.baseDeDonnees.dbName());
 
         var resultat = await db.collection('produit').aggregate([
 
@@ -207,7 +208,7 @@ class ProduitDAO {
 
         ]).toArray();
 
-        await baseDeDonnees.fermer(client);
+        await this.baseDeDonnees.fermer(client);
 
         // console.log(resultat.length, resultat);
 
