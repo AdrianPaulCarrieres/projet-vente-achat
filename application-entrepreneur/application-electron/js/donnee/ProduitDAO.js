@@ -12,8 +12,8 @@ class ProduitDAO {
         return this.baseDeDonnees.selectionnerDocumentsCollection('categorie', nomCategorie, this.collection);
     }
 
-    listerProduit(champ, valeurChamp) {
-        return this.baseDeDonnees.selectionnerUnDocument(champ, valeurChamp, this.collection);
+    recupererProduitParID(id) {
+        return this.baseDeDonnees.selectionnerUnDocument('id_produit', id, this.collection);
     }
 
     ajouterProduit(produitAjout) {
