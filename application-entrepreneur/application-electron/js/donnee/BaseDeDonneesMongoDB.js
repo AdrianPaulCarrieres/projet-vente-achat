@@ -62,7 +62,7 @@ class BaseDeDonneeMongo {
         const c = await client.connect();
 
         const db = c.db(this.dbName());
-        var resultat = await db.collection(collection).findOne(document).toArray();
+        var resultat = await db.collection(collection).find(document).toArray();
 
         this.fermer(client);
 
