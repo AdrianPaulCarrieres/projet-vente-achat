@@ -44,6 +44,7 @@
             var ajouterProduit = new VueAjouterProduit(actionAjouterProduit, etiquetteCategorie, taille);
             ajouterProduit.afficher();
         }else if(hash.match(/^#modifierProduit\/([0-9]+)/)){
+            console.log("modification");
             var navigation = hash.match(/^#modifierProduit\/([0-9]+)/);
             var idProduit = navigation[1];
             var modifierProduit = new VueModifierProduit(produitDAO.listerProduit("id", idProduit),actionModifierProduit);

@@ -40,7 +40,7 @@ var VueListeProduits = (function () {
                             '                        <div class="col-6">\n' + listeProduits[j].etiquette +
                             '                        </div>\n' +
                             '                        <div class="col-4">\n' +
-                            '                            <a  href="#ModifierProduit/'+ listeProduits[j].id +'" class="btn btn-warning">\n' +
+                            '                            <a  href="#modifierProduit/'+ listeProduits[j].id_produit +'" class="btn btn-warning">\n' +
                             '                                <i class="fas fa-pen"></i>\n' +
                             '                            </a>\n' +
                             '                            <a href="#AjouterProduit" class="btn btn-danger">\n' +

@@ -3,7 +3,9 @@ var VueModifierProduit = (function () {
     pageModifierProduit = document.getElementById("page-modifier").innerHTML;
 
     return function (produit, actionModifierProduit) {
-        this.produit;
+        this.produit = produit;
+        console.log(produit);
+        console.log(this.produit);
         this.afficher = function () {
             elementBody = document.getElementsByTagName("body")[0];
             elementBody.innerHTML = navbar + pageModifierProduit;
@@ -13,7 +15,7 @@ var VueModifierProduit = (function () {
             document.getElementById("modifier-marque").value = this.produit.marque;
             document.getElementById("modifier-modele").value = this.produit.modele;
             document.getElementById("modifier-prix").value = this.produit.prix;
-            document.getElementById("modifier-image").value = this.produit.image;
+            // document.getElementById("modifier-image").value = this.produit.image;
             document.getElementById("modifier-id-categorie").value = this.produit.categorie;
             document.getElementById("modifier-id-produit").value = this.id;
 

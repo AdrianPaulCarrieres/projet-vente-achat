@@ -13,8 +13,7 @@ class ProduitDAO {
     }
 
     listerProduit(champ, valeurChamp) {
-        return this.creerProduitBidon();
-        //return baseDeDonnees.selectionnerUnDocument(champ, valeurChamp, this.collection);
+        return this.baseDeDonnees.selectionnerUnDocument(champ, valeurChamp, this.collection);
     }
 
     ajouterProduit(produitAjout) {
