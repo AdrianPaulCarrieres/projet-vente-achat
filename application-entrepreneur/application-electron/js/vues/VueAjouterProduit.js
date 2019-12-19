@@ -22,7 +22,6 @@ var VueAjouterProduit = (function () {
             var marque = document.getElementById("ajouter-marque").value;
             var modele = document.getElementById("ajouter-modele").value;
             var prix = document.getElementById("ajouter-prix").value;
-            var image = document.getElementById("ajouter-image").value;
             var idCategorie = etiquetteCategorie;
             console.log(taille);
             var produit = new Produit(taille, nom, etiquette, idCategorie, prix, marque, modele, image, true);
