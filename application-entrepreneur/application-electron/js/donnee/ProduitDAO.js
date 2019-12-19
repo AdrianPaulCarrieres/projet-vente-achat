@@ -1,6 +1,9 @@
 // const baseDeDonnees = require('./BaseDeDonneesMongoDB');
 // const produit = require('../modele/Produit');
 
+const database = firebase.database();
+const produitReference = database.ref('produit');
+
 class ProduitDAO {
 
     constructor(){
@@ -8,8 +11,18 @@ class ProduitDAO {
         this.collection = 'produit';
     }
 
-    listerProduitSelonCategorie(nomCategorie) {
-        return this.baseDeDonnees.selectionnerDocumentsCollection('categorie', nomCategorie, this.collection);
+    listerProduitSelonCategorie(nomCategorie, typeElementHtml, elementHTMLDeReference) {
+        
+        produitReference.on("child_added", function (snapshot) {
+
+            if (snapshot.val().categorie == nomCategorie) {
+                element = document.createElement(typeElementHtml);
+                element.innerHTML = snapshot.val().etiquette;
+                console.log(snapshot.val().etiquette);
+                elementHTMLDeReference.appendChild(element);
+            }
+
+        });
     }
 
     listerProduit(champ, valeurChamp) {
