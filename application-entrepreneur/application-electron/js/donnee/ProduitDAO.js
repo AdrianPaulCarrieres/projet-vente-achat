@@ -22,7 +22,7 @@ class ProduitDAO {
         });
     }
 
-    ajouterProduitFirebase(produit){
+    ajouterProduit(produit){
         produitReference.push().set({
             categorie: produit.categorie,
             chemin_image: produit.chemin_image,
@@ -40,9 +40,29 @@ class ProduitDAO {
         return this.baseDeDonnees.selectionnerUnDocument(champ, valeurChamp, this.collection);
     }
 
-    ajouterProduit(produitAjout) {
+    ajouterProduitAncien(produitAjout) {
         console.log(produitAjout);
         this.baseDeDonnees.insererDocument(produitAjout, this.collection);
+    }
+
+    modifierProduitFirebase(produit){
+        produitReference.orderByChild('id_produit').equalTo(5)
+            .on('value', function(produits) {
+                produits.forEach(function(prouitModif) {
+                    console.log(prouitModif.val());
+                    prouitModif.ref.update({
+                        categorie: produit.categorie,
+                        chemin_image: produit.chemin_image,
+                        etiquette: produit.etiquette,
+                        flag_disponibilite: produit.flag_disponibilite,
+                        id_produit: parseInt(produit.id_produit),
+                        marque: produit.marque,
+                        modele: produit.modele,
+                        nom_produit: produit.nom_produit,
+                        prix: parseInt(produit.prix)
+                    });
+                });
+            });
     }
 
     modifierProduit(champ, valeurChamp, produitModifie) {
