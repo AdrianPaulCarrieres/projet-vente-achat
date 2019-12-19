@@ -16,8 +16,10 @@
             listeCategoriesStatistiques = produitDAO.listerCategorieTableauStatistiques();
             var vueStatistiques = new VueStatistiques(listeProduitsStatistiques, listeCategoriesStatistiques);
             vueStatistiques.afficher();
+            /* a decommenter pour tester l'Ajout de produits avec firebase*/
             var produit = new Produit(5, "testajout", "test", "équipement de snowboard", 20, "testmarque", "testmodele", "image", true);
-            produitDAO.ajouterProduitFirebase(produit);
+            /* produitDAO.ajouterProduitFirebase(produit);*/
+            produitDAO.modifierProduitFirebase(produit);
         }else if(hash.match(/^#listeProduits/)){
             var listeCategories = await categorieDAO.listerCategories();
             console.log(listeCategories);
