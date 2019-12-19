@@ -33,7 +33,7 @@ var VueModifierProduit = (function () {
             var prix = document.getElementById("modifier-prix").value;
             var image = document.getElementById("modifier-image").value;
             var idCategorie = document.getElementById("modifier-id-categorie").value;
-            var idProduit = document.getElementById("modifier-id-produit").value;
+            var idProduit = parseInt(document.getElementById("modifier-id-produit").value);
             var produit = new Produit(idProduit, nom, etiquette, idCategorie, prix, marque, modele, image, true);
             actionModifierProduit(produit);
 

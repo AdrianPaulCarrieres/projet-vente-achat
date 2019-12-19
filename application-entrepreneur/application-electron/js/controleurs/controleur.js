@@ -47,13 +47,8 @@
             console.log("modification");
             var navigation = hash.match(/^#modifierProduit\/([0-9]+)/);
             var idProduit = navigation[1];
-            var liste = await produitDAO.listerTousLesProduits();
-            var produit;
-            for (let i = 0; i < liste.length; i++) {
-                if (liste[i].id_produit == idProduit){
-                    produit = liste[i];
-                }
-            }
+            produit = await produitDAO.recupererProduitParID(parseInt(idProduit));
+            produit = produit[0];
             var modifierProduit = new VueModifierProduit(produit,actionModifierProduit);
             modifierProduit.afficher();
         }else if(hash.match(/^#supprimerProduit\/([0-9]+)/)){
