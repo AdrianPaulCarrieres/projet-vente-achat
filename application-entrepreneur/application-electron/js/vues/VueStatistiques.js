@@ -20,7 +20,7 @@ var VueStatistiques = (function () {
         var produit, nombre, total,  moyenne;
         var textTableau = "";
         for (let i = 0; i < listeProduitsStatistiques.length; i++) {
-            produit = "ski";
+            produit = listeProduitsStatistiques[i]._id.etiquette;
             nombre = listeProduitsStatistiques[i].nombre_produit;
             total = listeProduitsStatistiques[i].prix_total;
             moyenne = listeProduitsStatistiques[i].prix_moyen;
@@ -41,7 +41,7 @@ var VueStatistiques = (function () {
         var categorie, nombre, total,  moyenne;
         var textTableau = "";
         for (let i = 0; i < listeCategoriesStatistiques.length; i++) {
-            categorie = "vetements";
+            categorie = listeCategoriesStatistiques[i]._id;
             nombre = listeCategoriesStatistiques[i].nombre_produit;
             total = listeCategoriesStatistiques[i].prix_total;
             moyenne = listeCategoriesStatistiques[i].prix_moyen;
@@ -59,14 +59,16 @@ var VueStatistiques = (function () {
 
     function peuplerTableauAnnee(listeAnneeStatistiques){
         tableauAnnee = document.getElementById("corps_tableau_annee");
-        var nombre, total, moyenne;
+        var nombre, total, moyenne, mois;
         textTableau = "";
-        for (let i = 0; i < listeAnneeStatistiques ; i++) {
-            nombre = 200;
-            total = "$508.20";
-            moyenne = "$2.50";
+        for (let i = 0; i < listeAnneeStatistiques.length ; i++) {
+            mois = listeAnneeStatistiques[i]._id;
+            console.log('Mois', mois);
+            nombre = listeAnneeStatistiques[i].nombre_produit;
+            total = listeAnneeStatistiques[i].prix_total;
+            moyenne = listeAnneeStatistiques[i].prix_moyen;
             textTableau += "<tr>"
-                +"<th>"+i+"</th>"
+                +"<th>"+mois+"</th>"
                 +"<th>"+nombre+"</th>"
                 +"<th>"+total+"</th>"
                 +"<th>"+moyenne+"</th>"

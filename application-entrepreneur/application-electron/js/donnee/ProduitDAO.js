@@ -136,7 +136,7 @@ class ProduitDAO {
 
         const db = c.db(this.baseDeDonnees.dbName());
 
-        var resultat = db.collection('produit').aggregate([
+        var resultat = await db.collection('produit').aggregate([
             {
                 $group: {
                     _id: "$categorie",
@@ -150,6 +150,8 @@ class ProduitDAO {
 
         this.baseDeDonnees.fermer(client);
 
+        // console.log('Resultat : ',resultat);
+
         return resultat;
 
     }
@@ -162,7 +164,7 @@ class ProduitDAO {
 
         const db = c.db(this.baseDeDonnees.dbName());
 
-        var resultat = db.collection('achat').aggregate([
+        var resultat = await db.collection('achat').aggregate([
 
             { $lookup: { from: "produit", localField: "id_produit", foreignField: "id_produit", as: "produit" } },
 
@@ -180,6 +182,8 @@ class ProduitDAO {
         ]).toArray();
 
         this.baseDeDonnees.fermer(client);
+
+        console.log('Resultat : ', resultat);
 
         return resultat;
 

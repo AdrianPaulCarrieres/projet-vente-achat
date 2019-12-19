@@ -4,6 +4,7 @@
         window.addEventListener("hashchange", naviguer);
         categorieDAO = new CategorieDAO();
         produitDAO = new ProduitDAO();
+        achatDAO = new AchatDAO();
         naviguer();
         console.log("naviguer");
     };
@@ -15,7 +16,8 @@
             listeProduitsStatistiques = await produitDAO.listerProduitTableauStatistiques();
             listeCategoriesStatistiques = await produitDAO.listerCategorieTableauStatistiques();
             listeAnneeStatistiques = await produitDAO.listerMoisTableauStatistiques();
-            chiffreAffaire =  produitDAO.valeurTotal(); //TODO : regler l'erreur dans cette fonction : Uncaught (in promise) TypeError: Cannot read property 'prix_total' of undefined at ProduitDAO.valeurTotal (ProduitDAO.js:126) at processTicksAndRejections (internal/process/task_queues.js:89)
+            console.log(listeAnneeStatistiques);
+            chiffreAffaire =  await produitDAO.valeurTotal(); //TODO : regler l'erreur dans cette fonction : Uncaught (in promise) TypeError: Cannot read property 'prix_total' of undefined at ProduitDAO.valeurTotal (ProduitDAO.js:126) at processTicksAndRejections (internal/process/task_queues.js:89)
             var vueStatistiques = new VueStatistiques(listeProduitsStatistiques, listeCategoriesStatistiques, listeAnneeStatistiques, chiffreAffaire);
             vueStatistiques.afficher();
         }else if(hash.match(/^#listeProduits/)){

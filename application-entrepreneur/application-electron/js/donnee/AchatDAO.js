@@ -4,8 +4,8 @@
 class AchatDAO {
 
     constructor() {
-        this.baseDeDonnees = new this.BaseDeDonneeMongo();
-        this.collection = achat.COLLECTION;
+        this.baseDeDonnees = new BaseDeDonneeMongo();
+        this.collection = 'achat';
     }
 
     listerAchat(champ, valeurChamp) {
