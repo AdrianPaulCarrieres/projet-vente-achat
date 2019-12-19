@@ -1,7 +1,4 @@
-// const baseDeDonnees = require('./BaseDeDonneesMongoDB');
-// const produit = require('../modele/Produit');
-
-const database = firebase.database();
+// const database = firebase.database();
 const produitReference = database.ref('produit');
 
 class ProduitDAO {
@@ -22,6 +19,20 @@ class ProduitDAO {
                 elementHTMLDeReference.appendChild(element);
             }
 
+        });
+    }
+
+    ajouterProduitFirebase(produit){
+        produitReference.push().set({
+            categorie: produit.categorie,
+            chemin_image: produit.chemin_image,
+            etiquette: produit.etiquette,
+            flag_disponibilite: produit.flag_disponibilite,
+            id_produit: parseInt(produit.id_produit),
+            marque: produit.marque,
+            modele: produit.modele,
+            nom_produit: produit.nom_produit,
+            prix: parseInt(produit.prix)
         });
     }
 
