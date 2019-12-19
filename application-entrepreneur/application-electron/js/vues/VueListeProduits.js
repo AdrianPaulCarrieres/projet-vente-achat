@@ -29,7 +29,7 @@ var VueListeProduits = (function () {
                     '<div id="collapse'+i+'" class="collapse " aria-labelledby="heading'+i+'" data-parent="#accordeon-categories">\n' +
                 '                <ul class="list-group">\n';
                 for (let j = 0; j < listeProduits.length ; j++) {
-                    if (listeCategories[i].etiquette == listeProduits[j].categorie && listeProduits[i].flag_disponibilite) {
+                    if (listeCategories[i].etiquette == listeProduits[j].categorie && listeProduits[j].flag_disponibilite ) {
                         texteListeCategories += '' +
 
                             '                    <li class="list-group-item">\n' +
@@ -37,7 +37,7 @@ var VueListeProduits = (function () {
                             '                        <div class="col-l2">\n' +
                             '                            <img src="https://via.placeholder.com/150 '+listeProduits[j].image+'" width="50" height="50">\n' +
                             '                        </div>\n' +
-                            '                        <div class="col-6">\n' + listeProduits[j].etiquette +
+                            '                        <div class="col-6">\n' + listeProduits[j].nom_produit +
                             '                        </div>\n' +
                             '                        <div class="col-4">\n' +
                             '                            <a  href="#modifierProduit/'+ listeProduits[j].id_produit +'" class="btn btn-warning">\n' +

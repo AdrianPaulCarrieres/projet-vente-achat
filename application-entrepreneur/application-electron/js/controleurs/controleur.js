@@ -61,6 +61,8 @@
             var navigation = hash.match(/^#supprimerProduit\/([0-9]+)/);
             var idProduit = navigation[1];
             produit = await produitDAO.recupererProduitParID(parseInt(idProduit));
+            console.log(produit[0]);
+            produit = produit[0];
             actionMasquerProduit(produit);
         }
     };
@@ -80,6 +82,7 @@
         //met le flag du produit a false pour qu il ne soit plus disponible, ni affiché sur la liste des produits, mais qu'il soit toujours dans les statistiques
         console.log("suppression de : "+ produit);
         produit.flag_disponibilite = false;
+        console.log(produit.id_produit);
         produitDAO.modifierProduit("id_produit", parseInt(produit.id_produit), produit);
         window.location.hash = "#listeProduits";
     }
