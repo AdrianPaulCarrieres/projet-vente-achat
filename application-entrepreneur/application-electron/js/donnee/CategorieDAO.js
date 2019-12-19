@@ -1,4 +1,6 @@
 // const baseDeDonnees = require('./BaseDeDonneesMongoDB');
+const database = firebase.database();
+const categorieReference = database.ref('categorie');
 
 class CategorieDAO {
     
@@ -6,8 +8,17 @@ class CategorieDAO {
         this.baseDeDonnees = new BaseDeDonneeMongo();
     }
 
-    listerCategories() {
-        return this.baseDeDonnees.selectionnerDocumentsCollection('categorie');
+    listerCategories(typeElementHtml, elementHTMLDeReference) {
+        
+        categorieReference.on("child_added", function (snapshot) {
+
+            element = document.createElement(typeElementHtml);
+            element.innerHTML = snapshot.val().etiquette;
+            console.log(snapshot.val().etiquette);
+            elementHTMLDeReference.appendChild(element);
+            
+        });
+
     }
 
 }
