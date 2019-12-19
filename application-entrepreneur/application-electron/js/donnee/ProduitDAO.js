@@ -42,7 +42,20 @@ class ProduitDAO {
         this.baseDeDonnees.supprimerUnDocument(champ, valeurChamp, this.collection);
     }
 
-    listerTousLesProduits() {
+    listerTousLesProduitsFirebase(typeElementHtml, elementHTMLDeReference) {
+
+        produitReference.on("child_added", function (snapshot) {
+
+            var element = document.createElement(typeElementHtml);
+            element.innerHTML = snapshot.val().nom_produit;
+            console.log(snapshot.val().nom_produit);
+            elementHTMLDeReference.appendChild(element);
+
+        });
+
+    }
+
+    listerTousLesProduitsAncien() {
         /*var listeProduit = [];
 
         var n = Math.floor((Math.random() * 20) + 1);
