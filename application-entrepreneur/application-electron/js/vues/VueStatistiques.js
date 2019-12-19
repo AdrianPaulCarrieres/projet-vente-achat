@@ -2,21 +2,22 @@ var VueStatistiques = (function () {
     navbar = document.getElementById("navbar").innerHTML;
     pageStatistiques = document.getElementById("pages_statistiques").innerHTML;
 
-    return function (listeProduitsStatistiques, listeCategoriesStatistiques) {
-
+    return function (listeProduitsStatistiques, listeCategoriesStatistiques, listeAnneeStatistiques, chiffreAffaire) {
+        console.log(listeProduitsStatistiques, listeCategoriesStatistiques, listeAnneeStatistiques, chiffreAffaire);
         this.afficher = function () {
             console.log("affichage");
             elementBody = document.getElementsByTagName("body")[0];
             elementBody.innerHTML = navbar + pageStatistiques;
-            peuplerTableauAnnee();
+            peuplerTableauAnnee(listeAnneeStatistiques);
             peuplerTableauProduit(listeProduitsStatistiques);
             peublerTableauCategories(listeCategoriesStatistiques);
+            document.getElementById("chiffre_affaire").innerHTML = chiffreAffaire;
         }
     };
 
     function peuplerTableauProduit(listeProduitsStatistiques) {
         tableauProduits = document.getElementById("corps_tableau_produit");
-        var produit, nombre, total,  moyenne, categorie, meilleurMois
+        var produit, nombre, total,  moyenne;
         var textTableau = "";
         for (let i = 0; i < listeProduitsStatistiques.length; i++) {
             produit = "ski";
@@ -30,8 +31,6 @@ var VueStatistiques = (function () {
                 +"<th>"+nombre+"</th>"
                 +"<th>"+total+"</th>"
                 +"<th>"+moyenne+"</th>"
-                +"<th>"+meilleurMois+"</th>"
-                +"<th>"+categorie+"</th>"
                 +"</tr>"
         }
         tableauProduits.innerHTML = textTableau;
@@ -39,7 +38,7 @@ var VueStatistiques = (function () {
 
     function peublerTableauCategories(listeCategoriesStatistiques) {
         tableauCategories = document.getElementById("corps_tableau_categorie");
-        var categorie, nombre, total,  moyenne, meilleurProduit, meilleurMois
+        var categorie, nombre, total,  moyenne;
         var textTableau = "";
         for (let i = 0; i < listeCategoriesStatistiques.length; i++) {
             categorie = "vetements";
@@ -53,32 +52,28 @@ var VueStatistiques = (function () {
                 +"<th>"+nombre+"</th>"
                 +"<th>"+total+"</th>"
                 +"<th>"+moyenne+"</th>"
-                +"<th>"+meilleurProduit+"</th>"
-                +"<th>"+meilleurMois+"</th>"
                 +"</tr>"
         }
         tableauCategories.innerHTML = textTableau;
     }
 
-    function peuplerTableauAnnee(){
+    function peuplerTableauAnnee(listeAnneeStatistiques){
         tableauAnnee = document.getElementById("corps_tableau_annee");
-        var nombre, total, moyenne, meilleurProduit, meilleureCategorie;
-        nombre = 200;
-        total = "$508.20";
-        moyenne = "$2.50";
-        meilleurProduit = "veste arc'teryx";
-        meilleureCategorie = "ski";
-        var textTableau = "";
-        for (let i = 0; i < 13; i++) {
+        var nombre, total, moyenne;
+        textTableau = "";
+        for (let i = 0; i < listeAnneeStatistiques ; i++) {
+            nombre = 200;
+            total = "$508.20";
+            moyenne = "$2.50";
             textTableau += "<tr>"
                 +"<th>"+i+"</th>"
                 +"<th>"+nombre+"</th>"
                 +"<th>"+total+"</th>"
                 +"<th>"+moyenne+"</th>"
-                +"<th>"+meilleurProduit+"</th>"
-                +"<th>"+meilleureCategorie+"</th>"
                 +"</tr>"
         }
+
+
         tableauAnnee.innerHTML = textTableau;
     }
 })();

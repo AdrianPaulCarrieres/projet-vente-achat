@@ -122,7 +122,7 @@ class ProduitDAO {
         ]).toArray();
 
         this.baseDeDonnees.fermer(client);
-
+        console.log(resultat);
         var retour = resultat[0].prix_total;
 
         return retour;
