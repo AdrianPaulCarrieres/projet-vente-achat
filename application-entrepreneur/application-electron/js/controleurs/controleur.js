@@ -47,7 +47,14 @@
             console.log("modification");
             var navigation = hash.match(/^#modifierProduit\/([0-9]+)/);
             var idProduit = navigation[1];
-            var modifierProduit = new VueModifierProduit(produitDAO.listerProduit("id", idProduit),actionModifierProduit);
+            var liste = await produitDAO.listerTousLesProduits();
+            var produit;
+            for (let i = 0; i < liste.length; i++) {
+                if (liste[i].id_produit == idProduit){
+                    produit = liste[i];
+                }
+            }
+            var modifierProduit = new VueModifierProduit(produit,actionModifierProduit);
             modifierProduit.afficher();
         }
     };
