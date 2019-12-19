@@ -18,7 +18,8 @@
   },
   "homepage": "https://github.com/cegepmatane/projet-vente-achat-2019-lachancechristophe#readme",
   "devDependencies": {
-    "electro": "^2.1.1"
+    "electro": "^2.1.1",
+    "electron": "^7.1.6"
   },
   "dependencies": {
     "mongodb": "^3.4.0"

@@ -1,15 +1,14 @@
-# Lancement de l'application electron
+# Application entrepreneur
 
-### Installation
+## Installation
 
 ```shell
 cd ./application-entrepreneur/application-electron
 npm install
 ```
 
-### Lancer l'application
+## Lancement
 
 ```shell
 npm start
 ```
-
