@@ -1,9 +1,13 @@
 // const baseDeDonnees = require('./BaseDeDonneesMongoDB');
 // const produit = require('../modele/Produit');
 
+//Pour télécharger des images
+const http = require('http');
+const fs = require('fs');
+
 class ProduitDAO {
 
-    constructor(){
+    constructor() {
         this.baseDeDonnees = new BaseDeDonneeMongo();
         this.collection = 'produit';
     }
@@ -61,18 +65,18 @@ class ProduitDAO {
         var prix = (Math.random() * 100) + 1;
         var marque = "ACME";
         var modele = "Modele " + idProduit;
-        var cheminImage = "img/path"+idProduit+".png";
+        var cheminImage = "img/path" + idProduit + ".png";
         var flagDisponibilite = true;
 
         var produit = new produit(
-            idProduit, nomProduit, etiquette, 
-            categorie, prix, marque, modele, 
+            idProduit, nomProduit, etiquette,
+            categorie, prix, marque, modele,
             cheminImage, flagDisponibilite);
-        
+
         return produit;
     }
 
-    listerProduitTableauStatistiques = async function () {
+    listerProduitTableauStatistiques = async function() {
 
         var client = this.baseDeDonnees.client();
 
@@ -103,7 +107,7 @@ class ProduitDAO {
 
     }
 
-    valeurTotal = async function () {
+    valeurTotal = async function() {
 
         var client = this.baseDeDonnees.client();
 
@@ -111,8 +115,7 @@ class ProduitDAO {
 
         const db = c.db(this.baseDeDonnees.dbName());
 
-        var resultat = await db.collection('achat').aggregate([
-            {
+        var resultat = await db.collection('achat').aggregate([{
                 $group: {
                     _id: 0,
                     prix_total: { $sum: "$prix" }
@@ -128,7 +131,7 @@ class ProduitDAO {
         return retour;
     }
 
-    listerCategorieTableauStatistiques = async function () {
+    listerCategorieTableauStatistiques = async function() {
 
         var client = this.baseDeDonnees.client();
 
@@ -136,8 +139,7 @@ class ProduitDAO {
 
         const db = c.db(this.baseDeDonnees.dbName());
 
-        var resultat = db.collection('produit').aggregate([
-            {
+        var resultat = db.collection('produit').aggregate([{
                 $group: {
                     _id: "$categorie",
                     prix_total: { $sum: "$prix" },
@@ -154,7 +156,7 @@ class ProduitDAO {
 
     }
 
-    listerMoisTableauStatistiques = async function () {
+    listerMoisTableauStatistiques = async function() {
 
         var client = this.baseDeDonnees.client();
 
@@ -212,6 +214,25 @@ class ProduitDAO {
         // console.log(resultat.length, resultat);
 
         return resultat[0]['id_produit'];
+
+    }
+
+    telechargerImage = async function(nombreProduit) {
+        var file = null;
+        var request
+        for (var i = 1; i <= nombreProduit; i++) {
+            file = fs.createWriteStream("img/produit" + i + ".jpg");
+            request = http.get("http://localhost:3000/image/produit/" + i, function(response) {
+                response.pipe(file);
+            });
+        }
+        /*const file = fs.createWriteStream("img/produit" + 1 + ".jpg");
+        const request = http.get("http://localhost:3000/image/produit/1", function(response) {
+            response.pipe(file);
+        });*/
+
+        //'C:\Users\darkr\Documents\Cours\Cegep\BDD\projet-vente-achat-2019-lachancechristophe\img\produit1.jpg'
+        //C:\Users\darkr\Documents\Cours\Cegep\BDD\projet-vente-achat-2019-lachancechristophe\application-entrepreneur\application-electron
 
     }
 
