@@ -56,6 +56,12 @@
             }
             var modifierProduit = new VueModifierProduit(produit,actionModifierProduit);
             modifierProduit.afficher();
+        }else if(hash.match(/^#supprimerProduit\/([0-9]+)/)){
+            console.log("suppression");
+            var navigation = hash.match(/^#supprimerProduit\/([0-9]+)/);
+            var idProduit = navigation[1];
+            produit = await produitDAO.recupererProduitParID(parseInt(idProduit));
+            actionMasquerProduit(produit);
         }
     };
 
@@ -65,9 +71,18 @@
     };
 
     var actionModifierProduit = function(produit){
-        produitDAO.modifierProduit(produit);
+        console.log(produit);
+        produitDAO.modifierProduit("id_produit", parseInt(produit.id_produit), produit);
         window.location.hash = "#listeProduits";
     };
+
+    var actionMasquerProduit = function(produit){
+        //met le flag du produit a false pour qu il ne soit plus disponible, ni affiché sur la liste des produits, mais qu'il soit toujours dans les statistiques
+        console.log("suppression de : "+ produit);
+        produit.flag_disponibilite = false;
+        produitDAO.modifierProduit("id_produit", parseInt(produit.id_produit), produit);
+        window.location.hash = "#listeProduits";
+    }
 
     initialiser();
 

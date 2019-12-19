@@ -102,10 +102,11 @@ class BaseDeDonneeMongo {
     }
 
     async modifierUnDocument(clef, valeur, nouveauDocument, collection) {
-
+        console.log(nouveauDocument);
+        console.log(clef + " "+ valeur);
         var client = this.client();
         const document = JSON.parse('{"' + clef + '":' + valeur + '}');
-
+        console.log(document);
         const c = await client.connect();
 
         const db = c.db(this.dbName());
@@ -121,6 +122,7 @@ class BaseDeDonneeMongo {
     async modifierDesDocuments(clef, valeur, nouveauDocument, collection) {
 
         var client = this.client();
+
         const document = JSON.parse('{"' + clef + '":' + valeur + '}');
 
         const c = await client.connect();

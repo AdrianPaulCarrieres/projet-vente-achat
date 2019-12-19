@@ -29,7 +29,7 @@ var VueListeProduits = (function () {
                     '<div id="collapse'+i+'" class="collapse " aria-labelledby="heading'+i+'" data-parent="#accordeon-categories">\n' +
                 '                <ul class="list-group">\n';
                 for (let j = 0; j < listeProduits.length ; j++) {
-                    if (listeCategories[i].etiquette == listeProduits[j].categorie) {
+                    if (listeCategories[i].etiquette == listeProduits[j].categorie && listeProduits[i].flag_disponibilite) {
                         texteListeCategories += '' +
 
                             '                    <li class="list-group-item">\n' +
@@ -43,7 +43,7 @@ var VueListeProduits = (function () {
                             '                            <a  href="#modifierProduit/'+ listeProduits[j].id_produit +'" class="btn btn-warning">\n' +
                             '                                <i class="fas fa-pen"></i>\n' +
                             '                            </a>\n' +
-                            '                            <a href="#AjouterProduit" class="btn btn-danger">\n' +
+                            '                            <a href="#supprimerProduit/'+ listeProduits[j].id_produit +'" class="btn btn-danger">\n' +
                             '                                <i class="fas fa-trash"></i>\n' +
                             '                            </a>\n' +
                             '                        </div>\n' +
