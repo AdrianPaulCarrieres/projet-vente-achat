@@ -1,11 +1,11 @@
-// const database = firebase.database();
+const database = firebase.database();
 const produitReference = database.ref('produit');
 
 class ProduitDAO {
 
     constructor(){
-        this.baseDeDonnees = new BaseDeDonneeMongo();
-        this.collection = 'produit';
+        // this.baseDeDonnees = new BaseDeDonneeMongo();
+        // this.collection = 'produit';
     }
 
     listerProduitSelonCategorie(nomCategorie, typeElementHtml, elementHTMLDeReference) {

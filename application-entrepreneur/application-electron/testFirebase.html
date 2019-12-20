@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-analytics.js"></script>
+
+<script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyARv2uC3kvomUtGlsKKS8WrBWUg8QnEzyQ",
+        authDomain: "infonuagique-vente-achat.firebaseapp.com",
+        databaseURL: "https://infonuagique-vente-achat.firebaseio.com",
+        projectId: "infonuagique-vente-achat",
+        storageBucket: "infonuagique-vente-achat.appspot.com",
+        messagingSenderId: "444517708623",
+        appId: "1:444517708623:web:cd52a5a747cc3b3e648b3a",
+        measurementId: "G-PKS15CN8N7"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+</script>
+<ul id="liste-produits">
+
+</ul>
+</body>
+<script src="js/modele/Produit.js"></script>
+<script src="js/donnee/ProduitDAO.js"></script>
+<script src="testFirebase.js"></script>
+</html>
