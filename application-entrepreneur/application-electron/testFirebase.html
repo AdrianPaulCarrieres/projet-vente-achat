@@ -9,6 +9,7 @@
 <form id="formulaire-ajout">
     <fieldset>
         <legend>Ajouter Produit</legend>
+        <label>Nom<input type="text" id="nom-ajouter"></label><br>
         <label>categorie<input type="text" id="categorie-ajouter"></label><br>
         <label>image<input type="text" id="image-ajouter"></label><br>
         <label>etiquette<input type="text" id="etiquette-ajouter"></label><br>
@@ -16,10 +17,25 @@
         <label>id<input type="text" id="id-ajouter"></label><br>
         <label>marque<input type="text" id="marque-ajouter"></label><br>
         <label>modele<input type="text" id="modele-ajouter"></label><br>
-        <label>Nom<input type="text" id="nom-ajouter"></label><br>
         <label>prix<input type="text" id="prix-ajouter"></label>
     </fieldset>
     <button onclick="ajouter()">ajouter</button>
+</form>
+
+<form id="formulaire-modification">
+    <fieldset>
+        <label>id du produit a modifier<input type="text" id="id-modifier"></label><br>
+        <label>Nom<input type="text" id="nom-modifier"></label><br>
+        <legend>modifier Produit <br><small>seule la modification du nom sera visible sur la liste ci dessous</small></legend>
+        <label>categorie<input type="text" id="categorie-modifier"></label><br>
+        <label>image<input type="text" id="image-modifier"></label><br>
+        <label>etiquette<input type="text" id="etiquette-modifier"></label><br>
+        <label>flag<input type="text" placeholder="true ou false" id="flag-modifier"></label><br>
+        <label>marque<input type="text" id="marque-modifier"></label><br>
+        <label>modele<input type="text" id="modele-modifier"></label><br>
+        <label>prix<input type="text" id="prix-modifier"></label>
+    </fieldset>
+    <button onclick="modifier()">modifier</button>
 </form>
 
 

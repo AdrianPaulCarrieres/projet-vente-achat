@@ -1,5 +1,4 @@
 var produitDAO = new ProduitDAO();
-console.log("ca marche");
 
 produitDAO.listerTousLesProduitsFirebase("li", document.getElementById("liste-produits"));
 function ajouter(){
@@ -20,4 +19,28 @@ function ajouter(){
 
     var produit = new Produit(parseInt(id),nom, etiquette, categorie, parseInt(prix), marque, modele, image, flag);
     produitDAO.ajouterProduit(produit);
+}
+
+function modifier(){
+    var categorie = document.getElementById("categorie-modifier").value;
+    var image = document.getElementById("image-modifier").value;
+    var etiquette = document.getElementById("etiquette-modifier").value;
+    var flag = document.getElementById("flag-modifier").value;
+    var id = document.getElementById("id-modifier").value;
+    var marque = document.getElementById("marque-modifier").value;
+    var modele = document.getElementById("modele-modifier").value;
+    var nom = document.getElementById("nom-modifier").value;
+    var prix = document.getElementById("prix-modifier").value;
+    if (flag == "true"){
+        flag = true;
+    }else{
+        flag = false
+    }
+
+    var produit = new Produit(parseInt(id),nom, etiquette, categorie, parseInt(prix), marque, modele, image, flag);
+    produitDAO.modifierProduitFirebase(produit);
+}
+
+function afficherModifier(id) {
+    document.getElementById("id-modifier").value = id;
 }
