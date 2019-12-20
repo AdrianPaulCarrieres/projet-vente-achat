@@ -78,7 +78,7 @@ class ProduitDAO {
         produitReference.on("child_added", function (snapshot) {
 
             var element = document.createElement(typeElementHtml);
-            element.innerHTML = snapshot.val().nom_produit;
+            element.innerHTML = snapshot.val().nom_produit + " id: "+snapshot.val().id_produit + "<button onclick='afficherModifier("+ snapshot.val().id_produit +")'>modifier</button>";
             console.log(snapshot.val().nom_produit);
             elementHTMLDeReference.appendChild(element);
 
