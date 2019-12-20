@@ -1,6 +1,7 @@
 var produitDAO = new ProduitDAO();
 
 produitDAO.listerTousLesProduitsFirebase("li", document.getElementById("liste-produits"));
+console.log(produitDAO.listerTousLesProduits());
 function ajouter(){
     var categorie = document.getElementById("categorie-ajouter").value;
     var image = document.getElementById("image-ajouter").value;

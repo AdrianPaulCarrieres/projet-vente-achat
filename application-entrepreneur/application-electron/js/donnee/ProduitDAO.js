@@ -86,15 +86,15 @@ class ProduitDAO {
 
     }
 
-    listerTousLesProduitsAncien() {
-        /*var listeProduit = [];
+    listerTousLesProduits(){
+        var listeProduits = [];
+        produitReference.on("child_added", function (snapshot) {
+            listeProduits.push(new Produit(snapshot.val().id_produit, snapshot.val().nom_produit,snapshot.val().etiquette, snapshot.val().categorie, snapshot.val().prix, snapshot.val().marque, snapshot.val().modele, snapshot.val().chemin_image, snapshot.val().flag_disponibilite));
+        });
+        return listeProduits;
+    }
 
-        var n = Math.floor((Math.random() * 20) + 1);
-        for(var x = 0; x < n; x++){
-            listeProduit.push(this.creerProduitBidon);
-        }
-
-        return listeProduit;*/
+    listerTousLesProduitsAnciens() {
         return this.baseDeDonnees.selectionnerDocumentsCollection(this.collection);
     }
 
