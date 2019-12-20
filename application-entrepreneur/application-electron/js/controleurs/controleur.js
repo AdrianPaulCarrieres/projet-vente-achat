@@ -23,7 +23,7 @@
         }else if(hash.match(/^#listeProduits/)){
             var listeCategories = await categorieDAO.listerCategories();
             console.log(listeCategories);
-            var listeProduits = await produitDAO.listerTousLesProduitsAncien();
+            var listeProduits = await produitDAO.listerTousLesProduits();
             var  vueListeProduits = new VueListeProduits(listeProduits, listeCategories);
             vueListeProduits.afficher();
         }else if(hash.match(/^#ajouterProduit\/([0-9]+)/)){
@@ -31,7 +31,7 @@
             var navigation = hash.match(/^#ajouterProduit\/([0-9]+)/);
             var idCategories = navigation[1];
             listeCategories = await categorieDAO.listerCategories();
-            var liste = await produitDAO.listerTousLesProduitsAncien();
+            var liste = await produitDAO.listerTousLesProduits();
             var taille = liste.length;
             console.log(taille);
             console.log(idCategories);
