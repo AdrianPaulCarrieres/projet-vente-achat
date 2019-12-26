@@ -9,6 +9,8 @@ defmodule CacheRedis.Application do
     children = [
       # Starts a worker by calling: CacheRedis.Worker.start_link(arg)
       # {CacheRedis.Worker, arg}
+
+      CacheRedis.Repo,
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
