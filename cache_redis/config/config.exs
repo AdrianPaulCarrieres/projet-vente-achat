@@ -11,6 +11,6 @@ config :cache_redis, ecto_repos: [CacheRedis.Repo]
 
 config :cache_redis, CacheRedis.Scheduler,
   jobs: [
-    # Every minute
+     # Runs every minute:
     {"* * * * *",              fn -> CacheRedis.Cacheur.cycle() end}
   ]

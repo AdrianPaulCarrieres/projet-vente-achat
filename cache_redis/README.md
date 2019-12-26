@@ -1,7 +1,5 @@
 # CacheRedis
 
-**TODO: Add description**
-
 ## Installation
 
 Installer Erlang et Elixir :
