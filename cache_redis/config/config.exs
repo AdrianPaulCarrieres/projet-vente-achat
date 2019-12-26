@@ -8,3 +8,9 @@ config :cache_redis, CacheRedis.Repo,
   port: 5432
 
 config :cache_redis, ecto_repos: [CacheRedis.Repo]
+
+config :cache_redis, CacheRedis.Scheduler,
+  jobs: [
+    # Every minute
+    {"* * * * *",              fn -> CacheRedis.Cacheur.cycle() end}
+  ]

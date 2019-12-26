@@ -4,18 +4,35 @@
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `cache_redis` to your list of dependencies in `mix.exs`:
+Installer Erlang et Elixir :
+<https://elixir-lang.org/install.html>
+
+Installer Redis
+
+Installer PostGresSQL
+
+Pour installer les dépendances
+
+```bash
+mix deps.get```
+
+## Lancement
+
+Pour lancer le projet :
+Lancer le serveur Redis
+
+Lancer le programme elixir
+
+```bash
+iex -S mix```
+
+Il est possible de configurer le scheduler pour que la cache soit mise à jour plus ou moins rapidement, dans le fichier config/config.exs
+
 
 ```elixir
-def deps do
-  [
-    {:cache_redis, "~> 0.1.0"}
+config :cache_redis, CacheRedis.Scheduler,
+  jobs: [
+    # Every minute
+    {"* * * * *",              fn -> CacheRedis.Cacheur.cycle() end}
   ]
-end
 ```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/cache_redis](https://hexdocs.pm/cache_redis).
-

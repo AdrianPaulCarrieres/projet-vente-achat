@@ -11,6 +11,7 @@ defmodule CacheRedis.Application do
       # {CacheRedis.Worker, arg}
 
       CacheRedis.Repo,
+      CacheRedis.Scheduler
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

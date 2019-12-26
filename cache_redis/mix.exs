@@ -25,7 +25,9 @@ defmodule CacheRedis.MixProject do
       {:ecto_sql, "~> 3.0"},
       {:postgrex, ">= 0.0.0"},
       {:redix, ">= 0.0.0"},
-      {:castore, ">= 0.0.0"}
+      {:castore, ">= 0.0.0"},
+      {:quantum, "~> 2.3"},
+      {:timex, "~> 3.0"}
     ]
   end
 end
