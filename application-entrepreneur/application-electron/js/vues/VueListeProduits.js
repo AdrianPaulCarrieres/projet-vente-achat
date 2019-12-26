@@ -35,7 +35,7 @@ var VueListeProduits = (function() {
                             '                    <li class="list-group-item">\n' +
                             '                        <div class="row justify-content-center align-items-center">\n' +
                             '                        <div class="col-l2">\n' +
-                            '                            <img src="img/produit' + 1 + '.jpg" width="50" height="50">\n' +
+                            '                            <img src="img/produit' + listeProduits[j].id_produit + '.png" width="50" height="50">\n' +
                             '                        </div>\n' +
                             '                        <div class="col-6">\n' + listeProduits[j].etiquette +
                             '                        </div>\n' +

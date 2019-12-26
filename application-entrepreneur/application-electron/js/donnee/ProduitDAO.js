@@ -221,12 +221,24 @@ class ProduitDAO {
         var file = null;
         var request
         for (var i = 1; i <= nombreProduit; i++) {
-            file = fs.createWriteStream("img/produit" + i + ".jpg");
+            console.log("Téléchargement de l'image : ", i);
+            /*file = fs.createWriteStream("img/produit" + i + ".png", { emitClose: true });
             request = http.get("http://localhost:3000/image/produit/" + i, function(response) {
                 response.pipe(file);
             });
+            file.end();*/
+            new Promise(resolve => {
+                file = fs.createWriteStream("img/produit" + i + ".png", { emitClose: true });
+                request = http.get("http://localhost:3000/image/produit/" + i, function(response) {
+                    response.pipe(file);
+                });
+                file.on('finish', () => file.close(resolve));
+            })
         }
-        /*const file = fs.createWriteStream("img/produit" + 1 + ".jpg");
+
+
+        /*
+        const file = fs.createWriteStream("img/produit" + 1 + ".png", { emitClose: true });
         const request = http.get("http://localhost:3000/image/produit/1", function(response) {
             response.pipe(file);
         });*/
