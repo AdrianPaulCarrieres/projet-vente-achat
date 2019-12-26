@@ -56,8 +56,8 @@ app.get('/image/personnalisation/:id', async(req, res) => {
 app.get('/image/produit/:id', async(req, res) => {
     const { id } = req.params;
 
-    var file = path.join(dir, 'produit\\produit' + id + ".jpg");
-    var type = 'image/jpeg';
+    var file = path.join(dir, 'produit\\produit' + id + ".png");
+    var type = 'image/png';
 
     console.log("path", file);
 
@@ -66,6 +66,8 @@ app.get('/image/produit/:id', async(req, res) => {
         res.set('Content-Type', type);
         s.pipe(res);
     });
+
+
     s.on('error', function() {
         res.set('Content-Type', 'text/plain');
         res.status(404).end('Not found');
