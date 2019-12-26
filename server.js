@@ -1,14 +1,9 @@
-/*const express = require('express');
-const app = express();
-const port = 3000;
-const connection = require('./helpers/connection');
-const query = require('./helpers/query');*/
 const redis = require('redis');
 const host = "6379";
 const port = "127.0.0.1";
 const client = redis.createClient(port, host);
 
-client.on('connect', function () {
+client.on('connect', function() {
     console.log('connecté');
 })
 
@@ -26,22 +21,13 @@ var connexion = {
     database: 'vente_achat'
 };
 
-/*app.get('/', (req, res) => res.send('Hello World!'))
-
-app.get('/persos', async(req, res) => {
-    const conn = await connection(connexion).catch(e => {})
-    const results = await query(conn, 'SELECT * FROM personnalisation').catch(console.log);
-    console.log(results);
-    res.json({ results });
-})*/
-
 app.get('/persos', async(req, res) => {
     var i = 1;
     var exists = true;
     var key;
     const results = [];
-    while (exists){
-        key = "personnalisation"+i;
+    while (exists) {
+        key = "personnalisation" + i;
         client.exists(key, function(err, reply) {
             if (reply === 1) {
                 console.log('exists');
@@ -57,14 +43,6 @@ app.get('/persos', async(req, res) => {
     }
     res.json({ results });
 })
-
-/*app.get('/perso/:id', async(req, res) => {
-    const { id } = req.params;
-    const conn = await connection(connexion).catch(e => {})
-    var requete = 'SELECT * FROM personnalisation WHERE id = ' + id;
-    const results = await query(conn, requete).catch(console.log);
-    res.json({ results });
-});*/
 
 app.get('/perso/:id', async(req, res) => {
     const { id } = req.params;
