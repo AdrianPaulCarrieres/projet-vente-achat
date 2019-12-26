@@ -3,7 +3,7 @@ import Config
 config :cache_redis, CacheRedis.Repo,
   database: "cache_redis_repo",
   username: "postgres",
-  password: "postgres",
+  password: "mission",
   hostname: "localhost",
   port: 5432
 
