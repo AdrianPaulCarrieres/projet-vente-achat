@@ -2,7 +2,8 @@ var produitDAO = new ProduitDAO();
 
 produitDAO.listerTousLesProduitsFirebase("li", document.getElementById("liste-produits"));
 console.log(produitDAO.listerTousLesProduits());
-function ajouter(){
+
+function ajouter() {
     var categorie = document.getElementById("categorie-ajouter").value;
     var image = document.getElementById("image-ajouter").value;
     var etiquette = document.getElementById("etiquette-ajouter").value;
@@ -12,17 +13,17 @@ function ajouter(){
     var modele = document.getElementById("modele-ajouter").value;
     var nom = document.getElementById("nom-ajouter").value;
     var prix = document.getElementById("prix-ajouter").value;
-    if (flag == "true"){
+    if (flag == "true") {
         flag = true;
-    }else{
+    } else {
         flag = false
     }
 
-    var produit = new Produit(parseInt(id),nom, etiquette, categorie, parseInt(prix), marque, modele, image, flag);
+    var produit = new Produit(parseInt(id), nom, etiquette, categorie, parseInt(prix), marque, modele, image, flag);
     produitDAO.ajouterProduit(produit);
 }
 
-function modifier(){
+function modifier() {
     var categorie = document.getElementById("categorie-modifier").value;
     var image = document.getElementById("image-modifier").value;
     var etiquette = document.getElementById("etiquette-modifier").value;
@@ -32,16 +33,20 @@ function modifier(){
     var modele = document.getElementById("modele-modifier").value;
     var nom = document.getElementById("nom-modifier").value;
     var prix = document.getElementById("prix-modifier").value;
-    if (flag == "true"){
+    if (flag == "true") {
         flag = true;
-    }else{
+    } else {
         flag = false
     }
 
-    var produit = new Produit(parseInt(id),nom, etiquette, categorie, parseInt(prix), marque, modele, image, flag);
+    var produit = new Produit(parseInt(id), nom, etiquette, categorie, parseInt(prix), marque, modele, image, flag);
     produitDAO.modifierProduitFirebase(produit);
 }
 
 function afficherModifier(id) {
     document.getElementById("id-modifier").value = id;
+}
+
+function supprimer(id) {
+    produitDAO.supprimerProduitFirebase(id);
 }

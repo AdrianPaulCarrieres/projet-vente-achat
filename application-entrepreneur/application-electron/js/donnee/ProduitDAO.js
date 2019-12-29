@@ -3,14 +3,14 @@ const produitReference = database.ref('produit');
 
 class ProduitDAO {
 
-    constructor(){
+    constructor() {
         // this.baseDeDonnees = new BaseDeDonneeMongo();
         // this.collection = 'produit';
     }
 
     listerProduitSelonCategorie(nomCategorie, typeElementHtml, elementHTMLDeReference) {
-        
-        produitReference.on("child_added", function (snapshot) {
+
+        produitReference.on("child_added", function(snapshot) {
 
             if (snapshot.val().categorie == nomCategorie) {
                 element = document.createElement(typeElementHtml);
@@ -22,7 +22,7 @@ class ProduitDAO {
         });
     }
 
-    ajouterProduit(produit){
+    ajouterProduit(produit) {
         produitReference.push().set({
             categorie: produit.categorie,
             chemin_image: produit.chemin_image,
@@ -45,7 +45,7 @@ class ProduitDAO {
         this.baseDeDonnees.insererDocument(produitAjout, this.collection);
     }
 
-    modifierProduitFirebase(produit){
+    modifierProduitFirebase(produit) {
         produitReference.orderByChild('id_produit').equalTo(5)
             .on('value', function(produits) {
                 produits.forEach(function(prouitModif) {
@@ -75,10 +75,10 @@ class ProduitDAO {
 
     listerTousLesProduitsFirebase(typeElementHtml, elementHTMLDeReference) {
 
-        produitReference.on("child_added", function (snapshot) {
+        produitReference.on("child_added", function(snapshot) {
 
             var element = document.createElement(typeElementHtml);
-            element.innerHTML = snapshot.val().nom_produit + " id: "+snapshot.val().id_produit + "<button onclick='afficherModifier("+ snapshot.val().id_produit +")'>modifier</button>";
+            element.innerHTML = snapshot.val().nom_produit + " id: " + snapshot.val().id_produit + "<button onclick='afficherModifier(" + snapshot.val().id_produit + ")'>modifier</button>" + "<button onclick='supprimer(" + snapshot.val().id_produit + ")'>supprimer</button>";
             console.log(snapshot.val().nom_produit);
             elementHTMLDeReference.appendChild(element);
 
@@ -86,10 +86,10 @@ class ProduitDAO {
 
     }
 
-    listerTousLesProduits(){
+    listerTousLesProduits() {
         var listeProduits = [];
-        produitReference.on("child_added", function (snapshot) {
-            listeProduits.push(new Produit(snapshot.val().id_produit, snapshot.val().nom_produit,snapshot.val().etiquette, snapshot.val().categorie, snapshot.val().prix, snapshot.val().marque, snapshot.val().modele, snapshot.val().chemin_image, snapshot.val().flag_disponibilite));
+        produitReference.on("child_added", function(snapshot) {
+            listeProduits.push(new Produit(snapshot.val().id_produit, snapshot.val().nom_produit, snapshot.val().etiquette, snapshot.val().categorie, snapshot.val().prix, snapshot.val().marque, snapshot.val().modele, snapshot.val().chemin_image, snapshot.val().flag_disponibilite));
         });
         return listeProduits;
     }
@@ -118,18 +118,18 @@ class ProduitDAO {
         var prix = (Math.random() * 100) + 1;
         var marque = "ACME";
         var modele = "Modele " + idProduit;
-        var cheminImage = "img/path"+idProduit+".png";
+        var cheminImage = "img/path" + idProduit + ".png";
         var flagDisponibilite = true;
 
         var produit = new produit(
-            idProduit, nomProduit, etiquette, 
-            categorie, prix, marque, modele, 
+            idProduit, nomProduit, etiquette,
+            categorie, prix, marque, modele,
             cheminImage, flagDisponibilite);
-        
+
         return produit;
     }
 
-    listerProduitTableauStatistiques = async function () {
+    listerProduitTableauStatistiques = async function() {
 
         var client = this.baseDeDonnees.client();
 
@@ -160,7 +160,7 @@ class ProduitDAO {
 
     }
 
-    valeurTotal = async function () {
+    valeurTotal = async function() {
 
         var client = this.baseDeDonnees.client();
 
@@ -168,8 +168,7 @@ class ProduitDAO {
 
         const db = c.db(this.baseDeDonnees.dbName());
 
-        var resultat = await db.collection('achat').aggregate([
-            {
+        var resultat = await db.collection('achat').aggregate([{
                 $group: {
                     _id: 0,
                     prix_total: { $sum: "$prix" }
@@ -185,7 +184,7 @@ class ProduitDAO {
         return retour;
     }
 
-    listerCategorieTableauStatistiques = async function () {
+    listerCategorieTableauStatistiques = async function() {
 
         var client = this.baseDeDonnees.client();
 
@@ -193,8 +192,7 @@ class ProduitDAO {
 
         const db = c.db(this.baseDeDonnees.dbName());
 
-        var resultat = db.collection('produit').aggregate([
-            {
+        var resultat = db.collection('produit').aggregate([{
                 $group: {
                     _id: "$categorie",
                     prix_total: { $sum: "$prix" },
@@ -211,7 +209,7 @@ class ProduitDAO {
 
     }
 
-    listerMoisTableauStatistiques = async function () {
+    listerMoisTableauStatistiques = async function() {
 
         var client = this.baseDeDonnees.client();
 
@@ -270,6 +268,18 @@ class ProduitDAO {
 
         return resultat[0]['id_produit'];
 
+    }
+
+    supprimerProduitFirebase(id) {
+        const userRef = database.ref('bidule/' + id);
+        userRef.remove()
+            .then(function() {
+                console.log("Remove succeeded.")
+            })
+            .catch(function(error) {
+                console.log("Remove failed: " + error.message)
+            });
+        console.log(id);
     }
 
 }
